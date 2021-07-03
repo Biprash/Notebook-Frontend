@@ -11,7 +11,7 @@ function Slick({}: Props): ReactElement {
             <h1 className="text-4xl font-bold my-6">Top Books</h1>
             <div className="flex flex-wrap justify-between">
                 <div className="bg-white rounded w-64">
-                    <img src={Book} alt="" className="rounded-t bg-cover bg-no-repeat" />
+                    <img src={Book} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
                     <div className="flex flex-col px-4 py-3">
                         <h2 className="font-semibold text-lg py-1 ">Python Tutorial</h2>
                         <p className="py-2">Description about the deatil.</p>
