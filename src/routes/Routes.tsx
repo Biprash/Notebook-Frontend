@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Explore from '../Pages/Explore'
 import Login from '../Pages/Login'
 import NoteDetail from '../Pages/NoteDetail'
+import Note from '../Pages/Note'
 
 function Routes(): ReactElement {
     return (
@@ -12,11 +13,14 @@ function Routes(): ReactElement {
                 <Route exact path="/">
                     <Explore />
                 </Route>
-                <Route exact path="/login">
+                <Route path="/login">
                     <Login />
                 </Route>
-                <Route exact path="/note">
+                <Route path="/note/:id">
                     <NoteDetail />
+                </Route>
+                <Route path="/note">
+                    <Note />
                 </Route>
             </Switch>
         </Router>
