@@ -17,7 +17,6 @@ interface Props {
 }
 
 function Slick({data}: Props): ReactElement {
-    console.log(data.data, 'datas');
     
     return (
         <div>

@@ -21,10 +21,8 @@ function Explore({ }: Props): ReactElement {
     const [explores, setExplores] = useState<Array<NoteList>>([])
 
     useEffect(() => {
-        server.get('/api/explore')
-        .then(res => {        
-            console.log(res.data.data);
-                
+        server.get('/explore')
+        .then(res => {                        
             setExplores(res.data.data)            
         })
     }, [])
@@ -33,9 +31,7 @@ function Explore({ }: Props): ReactElement {
             <Navbar />
             <div className="container">
                 {                
-                explores && explores.map(explore => {
-                    console.log(explore,'ex');
-                                                                         
+                explores && explores.map(explore => {                                                                         
                     return <Slick data={explore}/>
                 })}
             </div>
