@@ -1,23 +1,41 @@
 import React, { ReactElement } from 'react'
 import Book from '../assets/images/books.jpg'
 
-interface Props {
-    
+interface Note {
+    title: string
+    description?: string
+    cover?: string
 }
 
-function Slick({}: Props): ReactElement {
+interface NoteList {
+    title: string
+    data?: Note[]
+}
+
+interface Props {
+    data: NoteList
+}
+
+function Slick({data}: Props): ReactElement {
+    console.log(data.data, 'datas');
+    
     return (
         <div>
-            <h1 className="text-4xl font-bold my-6">Top Books</h1>
-            <div className="flex flex-wrap justify-between">
-                <div className="bg-white rounded w-64">
-                    <img src={Book} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
-                    <div className="flex flex-col px-4 py-3">
-                        <h2 className="font-semibold text-lg py-1 ">Python Tutorial</h2>
-                        <p className="py-2">Description about the deatil.</p>
-                        <button className="w-2/4 bg-blue-500 text-white mx-auto my-2 py-1 hover:bg-blue-600">View</button>
-                    </div>
-                </div>
+            <h1 className="text-4xl font-bold my-6">{data.title}</h1>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+
+                { data.data && data.data.map(item => {
+                    return(
+                        <div className="bg-white rounded w-64">
+                            <img src={item.cover} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
+                            <div className="flex flex-col px-4 py-3">
+                                <h2 className="font-semibold text-lg py-1 ">{item.title}</h2>
+                                <p className="py-2">{item.description}</p>
+                            </div>
+                        </div>
+                    )
+                })}
+                
             </div>
         </div>
     )
