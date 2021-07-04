@@ -5,7 +5,7 @@ const headers = {
     Accept: "application/json",
 };
 
-const baseURL = process.env.REACT_APP_DOMAIN;
+const baseURL = process.env.REACT_APP_BASE_PATH;
 
 const server = axios.create({
     baseURL : baseURL,

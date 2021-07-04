@@ -3,16 +3,13 @@ import server from '../server/server'
 
 import Navbar from '../Components/Navbar'
 
-interface Props {
-    
-}
 
 interface Login {
     email: string;
     password: string;
 }
 
-function Login({}: Props): ReactElement {
+function Login(): ReactElement {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -26,9 +23,9 @@ function Login({}: Props): ReactElement {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        server.get('/sanctum/csrf-cookie')
+        server.get(process.env.REACT_APP_DOMAIN+'/sanctum/csrf-cookie')
         .then(res => {
-            server.post('/login', {
+            server.post(process.env.REACT_APP_DOMAIN+'/login', {
                 email: email,
                 password: password
             })
