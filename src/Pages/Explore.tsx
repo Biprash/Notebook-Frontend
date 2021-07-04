@@ -3,10 +3,8 @@ import Navbar from '../Components/Navbar'
 import Slick from '../Components/Slick'
 import server from '../server/server'
 
-interface Props {
-}
-
 interface Note {
+    id: number
     title: string
     description?: string
     cover?: string
@@ -17,7 +15,7 @@ interface NoteList {
     data?: Note[];
 }
 
-function Explore({ }: Props): ReactElement {
+function Explore(): ReactElement {
     const [explores, setExplores] = useState<Array<NoteList>>([])
 
     useEffect(() => {
@@ -31,8 +29,8 @@ function Explore({ }: Props): ReactElement {
             <Navbar />
             <div className="container">
                 {                
-                explores && explores.map(explore => {                                                                         
-                    return <Slick data={explore}/>
+                explores && explores.map((explore, index) => {                                                                         
+                    return <Slick key={index} data={explore}/>
                 })}
             </div>
         </>
