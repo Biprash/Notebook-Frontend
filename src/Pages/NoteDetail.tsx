@@ -21,7 +21,7 @@ function NoteDetail(): ReactElement {
     
 
     useEffect(() => {
-        server.get(`/pages/${id}/list`)
+        server.get(`/user/pages/${id}/list`)
         .then(res => {
             console.log(res.data.data);
             setPages(res.data.data)
@@ -34,7 +34,7 @@ function NoteDetail(): ReactElement {
             <div className="flex flex-col">
                 <h1 className="font-bold text-3xl text-gray-800 mx-auto py-2">Title of the Note</h1>
                 <div className="flex bg-gray-200">
-                    <NoteSidebar pageList={pages} setSelectedPage={setSelectedPage}  />
+                    <NoteSidebar pageList={pages} selectedPage={selectedPage} setSelectedPage={setSelectedPage}  />
                     <NoteContent />
                 </div>
             </div>
