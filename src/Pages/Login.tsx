@@ -3,15 +3,9 @@ import server from '../server/server'
 
 import Navbar from '../Components/Navbar'
 
-
-interface Login {
-    email: string;
-    password: string;
-}
-
 function Login(): ReactElement {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value.trim())
