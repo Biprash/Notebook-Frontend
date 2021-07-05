@@ -7,6 +7,13 @@ interface Section {
     title: string
 }
 
+interface Resource {
+    id: number
+    title: string
+    link: string
+    description?: string
+}
+
 interface SectionClick {
     index: number
     sectionId: number
@@ -18,7 +25,9 @@ interface Props {
 
 function NoteContent({selectedPage}: Props): ReactElement {
     const [sections, setSections] = useState<Array<Section>>([])
-    const [currentSection, setCurrentSection] = useState(1)
+    const [resources, setResources] = useState<Array<Resource>>([])
+    const [selectedSection, setSelectedSection] = useState<number>(1)
+    const [currentSection, setCurrentSection] = useState<number>(1)
 
     useEffect(() => {
         server.get(`user/sections/${selectedPage}/list`)
@@ -28,11 +37,24 @@ function NoteContent({selectedPage}: Props): ReactElement {
         })
     }, [selectedPage])
 
+    useEffect(() => {
+        server.get(`user/resources/${selectedSection}/list`)
+        .then(res => {
+            console.log(res.data.data, 'res');
+            setResources(res.data.data)
+        })
+    }, [selectedSection])
+
     return (
         <div className="p-2 flex flex-col flex-1">
             <div className="flex flex-row flex-wrap">
                 {sections.map((section, index) => {
-                    return <button key={section.id} onClick={() => setCurrentSection(index+1)} className={`text-left px-2 py-1 mr-1 bg-gray-300 rounded-t ${index+1 == currentSection ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'}`}>{section.title}</button>
+                    return <button key={section.id} 
+                    onClick={() => {
+                        setCurrentSection(index+1)
+                        setSelectedSection(section.id)
+                    }} 
+                    className={`text-left px-2 py-1 mr-1 bg-gray-300 rounded-t ${index+1 == currentSection ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'}`}>{section.title}</button>
                 })}
                 {/* <form method="post" className="flex">
                     <input className="px-2 py-1 outline-none focus:ring" type="text" name="page" />
@@ -47,15 +69,17 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     <p className="text-sm text-center">Add Resource</p>
                 </button>
                 <div className="flex flex-wrap">
-
-                    <div className="bg-white rounded w-40 m-2">
-                        <img src={Book} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
-                        <div className="flex flex-col px-4 py-2">
-                            <h2 className="font-semibold text-lg py-1">Python Tutorial</h2>
-                            <p className="py-1">Description about the deatil.</p>
-                        </div>
-                    </div>
-
+                    {resources.map((resource, index) => {
+                        return (
+                            <div className="bg-white rounded w-40 m-2">
+                                <img src={Book} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
+                                <div className="flex flex-col px-4 py-2">
+                                    <h2 className="font-semibold text-lg py-1">{resource.title}</h2>
+                                    <p className="py-1">{resource.description}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
