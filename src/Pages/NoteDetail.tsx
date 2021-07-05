@@ -35,7 +35,7 @@ function NoteDetail(): ReactElement {
                 <h1 className="font-bold text-3xl text-gray-800 mx-auto py-2">Title of the Note</h1>
                 <div className="flex bg-gray-200">
                     <NoteSidebar pageList={pages} selectedPage={selectedPage} setSelectedPage={setSelectedPage}  />
-                    <NoteContent />
+                    <NoteContent selectedPage={selectedPage} />
                 </div>
             </div>
         </>

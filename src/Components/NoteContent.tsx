@@ -1,18 +1,39 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import Book from '../assets/images/books.jpg'
+import server from '../server/server'
 
-interface Props {
-    
+interface Section {
+    id: number
+    title: string
 }
 
-function NoteContent({}: Props): ReactElement {
+interface SectionClick {
+    index: number
+    sectionId: number
+}
+
+interface Props {
+    selectedPage: number
+}
+
+function NoteContent({selectedPage}: Props): ReactElement {
+    const [sections, setSections] = useState<Array<Section>>([])
+    const [currentSection, setCurrentSection] = useState(1)
+
+    useEffect(() => {
+        server.get(`user/sections/${selectedPage}/list`)
+        .then(res => {
+            console.log(res.data.data, 'sec');
+            setSections(res.data.data)
+        })
+    }, [selectedPage])
+
     return (
         <div className="p-2 flex flex-col flex-1">
             <div className="flex flex-row flex-wrap">
-                <p className="px-2 py-1 mr-1 bg-gray-300 rounded-t hover:bg-gray-100 bg-blue-500 text-white hover:text-current">section-1</p>
-                <p className="px-2 py-1 mr-1 bg-gray-300 rounded-t hover:bg-gray-100">section-2</p>
-                <p className="px-2 py-1 mr-1 bg-gray-300 rounded-t hover:bg-gray-100">section-3</p>
-                <p className="px-2 py-1 mr-1 bg-gray-300 rounded-t hover:bg-gray-100">section-4</p>
+                {sections.map((section, index) => {
+                    return <button key={section.id} onClick={() => setCurrentSection(index+1)} className={`text-left px-2 py-1 mr-1 bg-gray-300 rounded-t ${index+1 == currentSection ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'}`}>{section.title}</button>
+                })}
                 {/* <form method="post" className="flex">
                     <input className="px-2 py-1 outline-none focus:ring" type="text" name="page" />
                     <input className="md:hidden w-1/4 my-2 px-2 py-1 rounded text-white bg-blue-500 hover:bg-blue-600" type="submit" value="Add" />

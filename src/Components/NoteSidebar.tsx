@@ -34,8 +34,8 @@ function NoteSidebar({pageList, selectedPage, setSelectedPage}: Props): ReactEle
     }
     return (
         <div className="max-w-3xl w-64 py-2 px-4 flex flex-col border-r border-gray-300">
-            { pageList && pageList.map(page => {
-                return <button key={page.id} onClick={() => setSelectedPage(page.id)} className={`text-left text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 ${page.id == selectedPage && 'bg-white'}`}>{page.title}</button>
+            { pageList && pageList.map((page, index) => {
+                return <button key={page.id} onClick={() => setSelectedPage(page.id)} className={`text-left text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 ${index+1 == selectedPage && 'bg-white'}`}>{page.title}</button>
             })}
             <form onSubmit={handlePageSubmit} method="post" className="flex flex-col my-2">
                 <input value={page} onChange={handlePageChange} className="px-2 py-1 outline-none focus:ring" type="text" name="page" placeholder="New Page" />
