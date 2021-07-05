@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import { Link } from 'react-router-dom'
 import Book from '../assets/images/books.jpg'
 
 interface Note {
@@ -26,13 +27,13 @@ function Slick({data}: Props): ReactElement {
 
                 { data.data && data.data.map(item => {
                     return(
-                        <div key={item.id} className="bg-white rounded w-64">
+                        <Link to={`/note/${item.id}`} key={item.id} className="bg-white rounded w-64">
                             <img src={item.cover} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
                             <div className="flex flex-col px-4 py-3">
                                 <h2 className="font-semibold text-lg py-1 ">{item.title}</h2>
                                 <p className="py-2">{item.description}</p>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
                 
