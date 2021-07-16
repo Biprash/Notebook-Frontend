@@ -3,7 +3,11 @@ import Navbar from '../Components/Navbar'
 import NoteSidebar from '../Components/NoteSidebar'
 import NoteContent from '../Components/NoteContent'
 import server from '../server/server'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
+
+interface LocationState {
+    isPublic?: Boolean
+  }
 
 interface RouteParams {
     id: string
@@ -15,17 +19,26 @@ interface Page {
 }
 
 function NoteDetail(): ReactElement {
+    let location = useLocation<LocationState>()
     const { id } = useParams<RouteParams>()
     const [pages, setPages] = useState<Array<Page>>([])
     const [selectedPage, setSelectedPage] = useState<number>(1)
     
 
     useEffect(() => {
-        server.get(`/user/pages/${id}/list`)
-        .then(res => {
-            console.log(res.data.data);
-            setPages(res.data.data)
-        })
+        if (location.state?.isPublic) {            
+            server.get(`/pages/${id}/list`)
+            .then(res => {
+                console.log(res.data.data);
+                setPages(res.data.data)
+            })
+        } else {
+            server.get(`/user/pages/${id}/list`)
+            .then(res => {
+                console.log(res.data.data);
+                setPages(res.data.data)
+            })
+        }        
     }, [])    
     
     return (

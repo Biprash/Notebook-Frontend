@@ -27,7 +27,10 @@ function Slick({data}: Props): ReactElement {
 
                 { data.data && data.data.map(item => {
                     return(
-                        <Link to={`/note/${item.id}`} key={item.id} className="bg-white rounded w-64">
+                        <Link to={{ 
+                                pathname:`/note/${item.id}`,
+                                state: { isPublic: true }
+                            }} key={item.id} className="bg-white rounded w-64">
                             <img src={item.cover} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
                             <div className="flex flex-col px-4 py-3">
                                 <h2 className="font-semibold text-lg py-1 ">{item.title}</h2>
