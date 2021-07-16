@@ -26,7 +26,7 @@ function ProfileSidebar({}: Props): ReactElement {
                     </div>
                 </div>
             </div>
-            <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 bg-white">All Notes</Link>
+            <Link to="/note" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 bg-white">All Notes</Link>
             <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Forked Notes</Link>
             <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Bookmarks</Link>
             <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Groupings</Link>
