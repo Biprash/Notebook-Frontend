@@ -6,7 +6,7 @@ import server from '../server/server'
 import { useLocation, useParams } from 'react-router-dom'
 
 interface LocationState {
-    isPublic?: Boolean
+    isPublic?: Boolean | undefined
   }
 
 interface RouteParams {
@@ -26,16 +26,21 @@ function NoteDetail(): ReactElement {
     
 
     useEffect(() => {
-        if (location.state?.isPublic) {            
+        if (location.state?.isPublic) {
+            // Public
             server.get(`/pages/${id}/list`)
             .then(res => {
-                console.log(res.data.data);
+                console.log(res.data.data, 'pages public');
+                // selectedPage works temporarily loads second
+                setSelectedPage(res.data?.data[0].id)
                 setPages(res.data.data)
             })
         } else {
+            // Private
             server.get(`/user/pages/${id}/list`)
             .then(res => {
-                console.log(res.data.data);
+                console.log(res.data.data, 'pages private');
+                setSelectedPage(res.data?.data[0].id)
                 setPages(res.data.data)
             })
         }        
