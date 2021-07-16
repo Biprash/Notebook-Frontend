@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Dispatch, FormEvent, ReactElement, SetStateAction, useState } from 'react'
-import server from '../server/server'
+// import server from '../server/server'
 
 interface Page {
     id: number
@@ -14,6 +14,7 @@ interface Props {
 
 function NoteSidebar({pageList, selectedPage, setSelectedPage}: Props): ReactElement {
     const [page, setPage] = useState<string>('')
+    const [currentPage, setCurrentPage] = useState<number>(0)
 
     const handlePageChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPage(e.target.value)
@@ -35,7 +36,12 @@ function NoteSidebar({pageList, selectedPage, setSelectedPage}: Props): ReactEle
     return (
         <div className="max-w-3xl w-64 py-2 px-4 flex flex-col border-r border-gray-300">
             { pageList && pageList.map((page, index) => {
-                return <button key={page.id} onClick={() => setSelectedPage(page.id)} className={`text-left text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 ${index+1 == selectedPage && 'bg-white'}`}>{page.title}</button>
+                return <button key={page.id} 
+                onClick={() => {
+                    setSelectedPage(page.id)
+                    setCurrentPage(index)
+                }} 
+                className={`text-left text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 ${index === currentPage && 'bg-white'}`}>{page.title}</button>
             })}
             <form onSubmit={handlePageSubmit} method="post" className="flex flex-col my-2">
                 <input value={page} onChange={handlePageChange} className="px-2 py-1 outline-none focus:ring" type="text" name="page" placeholder="New Page" />
