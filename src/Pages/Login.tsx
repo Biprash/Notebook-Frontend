@@ -2,8 +2,10 @@ import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react'
 import server from '../server/server'
 
 import Navbar from '../Components/Navbar'
+import { useHistory } from 'react-router-dom'
 
 function Login(): ReactElement {
+    let history = useHistory()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
@@ -18,7 +20,7 @@ function Login(): ReactElement {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         server.get(process.env.REACT_APP_DOMAIN+'/sanctum/csrf-cookie')
-        .then(res => {
+        .then(() => {
             server.post(process.env.REACT_APP_DOMAIN+'/login', {
                 email: email,
                 password: password
@@ -26,6 +28,9 @@ function Login(): ReactElement {
             .then(res => {
                 console.log(res, 'res');
                 
+                if (res.data.two_factor === false) {                    
+                    history.push('/note')
+                }
             })
         })
     }
