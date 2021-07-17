@@ -1,25 +1,41 @@
 import { ChangeEvent, Dispatch, FormEvent, ReactElement, SetStateAction, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import server from '../../server/server';
 
+interface Page {
+    id: number
+    title: string
+}
+
 interface Props {
+    pages: Page[]
+    setPages: Dispatch<SetStateAction<Page[]>>
     setShowPageForm: Dispatch<SetStateAction<boolean>>
 }
 
-function PageForm({setShowPageForm}: Props): ReactElement {
+interface RouteParams {
+    noteId: string
+}
+function PageForm({pages, setPages, setShowPageForm}: Props): ReactElement {
+    const { noteId } = useParams<RouteParams>()
     const [title, setTitle] = useState('')
 
     const handlePageFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log('currently working');
         if (title) {
-            // server.post(process.env.REACT_APP_BASE_PATH + '/user/pages', { note_id: 'get note id', title: title})
-            // .then(res => {
-            //     console.log('page has beed created but left to append');
-            // })
+            server.post(process.env.REACT_APP_BASE_PATH + '/user/pages', { note_id: noteId, title: title})
+            .then(res => {
+                console.log(res.data.data, 'new page form');
+                if (res.data.data) {
+                    setPages([...pages, res.data.data])
+                    setShowPageForm(false)
+                }
+            })
         }
     }
     return (
-        <div className="fixed z-10 top-0 left-0 w-full h-full p-20 pb-10 bg-gray-300 bg-opacity-50 overflow-auto">
+        <div className="fixed z-10 top-0 left-0 w-full h-full p-8 sm:p-20 pb-10 bg-gray-300 bg-opacity-50 overflow-auto">
             <div className="w-9/12 md:w-3/5 xl:w-2/5 m-auto p-6 bg-gray-100 rounded-lg shadow-md">
                 <button onClick={() => setShowPageForm(false)} className="float-right font-semibold text-lg bg-gray-300 hover:bg-red-600 hover:text-white px-3 pb-1 rounded-3xl">x</button>
                 <h2 className="text-2xl font-semibold pb-2">Create New Page</h2>
