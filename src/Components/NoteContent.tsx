@@ -1,8 +1,13 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Book from '../assets/images/books.jpg'
 import server from '../server/server'
 import ResourceForm from './Forms/ResourceForm'
 import SectionForm from './Forms/SectionForm'
+
+interface LocationState {
+    isPublic?: Boolean | undefined
+}
 
 interface Section {
     id: number
@@ -16,16 +21,13 @@ interface Resource {
     description?: string
 }
 
-interface SectionClick {
-    index: number
-    sectionId: number
-}
-
 interface Props {
     selectedPage: number
 }
 
 function NoteContent({selectedPage}: Props): ReactElement {
+    let location = useLocation<LocationState>()
+    
     const [showSectionForm, setShowSectionForm] = useState<boolean>(false)
     const [showResourceForm, setShowResourceForm] = useState<boolean>(false)
     const [sections, setSections] = useState<Array<Section>>([])
@@ -33,23 +35,25 @@ function NoteContent({selectedPage}: Props): ReactElement {
     const [selectedSection, setSelectedSection] = useState<number>(1)
     const [currentSection, setCurrentSection] = useState<number>(1)
 
-    useEffect(() => {                
-        server.get(`user/sections/${selectedPage}/list`)
-        .then(res => {
-            console.log(res.data.data, 'sec');
-            setSections(res.data.data)
-            // not the full proof method
-            setSelectedSection(res.data.data[0]?.id)
-            setCurrentSection(0)
-        })
+    useEffect(() => {     
+        server.get(`${location.state?.isPublic ? '': '/user'}/sections/${selectedPage}/list`)
+            .then(res => {
+                console.log(res.data.data, 'sec');
+                setSections(res.data.data)
+                // not the full proof method
+                setSelectedSection(res.data.data[0]?.id)
+                setCurrentSection(0)
+            })
     }, [selectedPage])
 
     useEffect(() => {
-        server.get(`user/resources/${selectedSection}/list`)
-        .then(res => {
-            console.log(res.data.data, 'res');
-            setResources(res.data.data)
-        })
+        if (selectedSection) {
+            server.get(`${location.state?.isPublic ? '': '/user'}/resources/${selectedSection}/list`)
+                .then(res => {
+                    console.log(res.data.data, 'res');
+                    setResources(res.data.data)
+                })
+        }
     }, [selectedSection])
 
     return (
@@ -79,7 +83,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     <div className="flex flex-wrap">
                         {resources.map((resource, index) => {
                             return (
-                                <div className="bg-white rounded w-40 m-2">
+                                <div key={resource.id} className="bg-white rounded w-40 m-2">
                                     <img src={Book} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
                                     <div className="flex flex-col px-4 py-2">
                                         <h2 className="font-semibold text-lg py-1">{resource.title}</h2>
