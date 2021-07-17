@@ -10,7 +10,7 @@ interface LocationState {
   }
 
 interface RouteParams {
-    id: string
+    noteId: string
 }
 
 interface Page {
@@ -20,7 +20,7 @@ interface Page {
 
 function NoteDetail(): ReactElement {
     let location = useLocation<LocationState>()
-    const { id } = useParams<RouteParams>()
+    const { noteId } = useParams<RouteParams>()
     const [pages, setPages] = useState<Array<Page>>([])
     const [selectedPage, setSelectedPage] = useState<number>(1)
     
@@ -28,19 +28,19 @@ function NoteDetail(): ReactElement {
     useEffect(() => {
         if (location.state?.isPublic) {
             // Public
-            server.get(`/pages/${id}/list`)
+            server.get(`/pages/${noteId}/list`)
             .then(res => {
                 console.log(res.data.data, 'pages public');
                 // selectedPage works temporarily loads second
-                setSelectedPage(res.data?.data[0].id)
+                setSelectedPage(res.data?.data[0]?.id)
                 setPages(res.data.data)
             })
         } else {
             // Private
-            server.get(`/user/pages/${id}/list`)
+            server.get(`/user/pages/${noteId}/list`)
             .then(res => {
                 console.log(res.data.data, 'pages private');
-                setSelectedPage(res.data?.data[0].id)
+                setSelectedPage(res.data?.data[0]?.id)
                 setPages(res.data.data)
             })
         }        

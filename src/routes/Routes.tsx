@@ -16,7 +16,7 @@ function Routes(): ReactElement {
                 <Route path="/login">
                     <Login />
                 </Route>
-                <Route path="/note/:id">
+                <Route path="/note/:noteId">
                     <NoteDetail />
                 </Route>
                 <Route path="/note">
