@@ -58,7 +58,7 @@ function NoteForm({notes, setNotes, setShowNewNoteForm}: Props): ReactElement {
         }
     }
     return (
-        <div className="fixed z-10 top-0 left-0 w-full h-full p-20 pb-10 bg-gray-300 bg-opacity-50 overflow-auto">
+        <div className="fixed z-10 top-0 left-0 w-full h-full p-8 sm:p-20 pb-10 bg-gray-300 bg-opacity-50 overflow-auto">
             <div className="w-9/12 md:w-3/5 xl:w-2/5 m-auto p-6 bg-gray-100 rounded-lg shadow-md">
                 <button onClick={() => setShowNewNoteForm(false)} className="float-right font-semibold text-lg bg-gray-300 hover:bg-red-600 hover:text-white px-3 pb-1 rounded-3xl">x</button>
                 <h2 className="text-2xl font-semibold pb-2">Create New Note</h2>
