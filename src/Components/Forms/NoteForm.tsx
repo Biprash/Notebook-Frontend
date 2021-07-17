@@ -64,7 +64,7 @@ function NoteForm({notes, setNotes, setShowNewNoteForm}: Props): ReactElement {
                 <h2 className="text-2xl font-semibold pb-2">Create New Note</h2>
                 <form onSubmit={handleNoteFormSubmit} className="flex flex-col" >
                     <label className="py-2" htmlFor="title">Title</label>
-                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none" type="text" name="title" required />
+                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none" type="text" name="title" required autoFocus />
                     
                     <label className="py-2" htmlFor="description">Description</label>
                     <input value={description} onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} className="py-1 px-2 outline-none" type="text" name="description" />
