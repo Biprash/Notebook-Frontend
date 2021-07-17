@@ -33,9 +33,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
     const [selectedSection, setSelectedSection] = useState<number>(1)
     const [currentSection, setCurrentSection] = useState<number>(1)
 
-    useEffect(() => {        
-        console.log(selectedPage, 'eff');
-        
+    useEffect(() => {                
         server.get(`user/sections/${selectedPage}/list`)
         .then(res => {
             console.log(res.data.data, 'sec');
@@ -57,7 +55,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
     return (
         <>
             {showSectionForm ? <SectionForm pageId={selectedPage} sections={sections} setSections={setSections} setShowSectionForm={setShowSectionForm} /> : null}
-            {showResourceForm ? <ResourceForm setShowResourceForm={setShowResourceForm} /> : null}
+            {showResourceForm ? <ResourceForm sectionId={selectedSection} resources={resources} setResources={setResources} setShowResourceForm={setShowResourceForm} /> : null}
 
             <div className="p-2 flex flex-col flex-1">
                 <div className="flex flex-row flex-wrap">
