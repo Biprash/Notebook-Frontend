@@ -29,7 +29,7 @@ function Note(): ReactElement {
 
     return (
         <>
-            {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} />: null}
+            {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} notes={notes} setNotes={setNotes} />: null}
             <Navbar />
             <div className="flex bg-gray-200">
                 <ProfileSidebar />
