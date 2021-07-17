@@ -34,10 +34,15 @@ function NoteContent({selectedPage}: Props): ReactElement {
     const [currentSection, setCurrentSection] = useState<number>(1)
 
     useEffect(() => {        
+        console.log(selectedPage, 'eff');
+        
         server.get(`user/sections/${selectedPage}/list`)
         .then(res => {
             console.log(res.data.data, 'sec');
             setSections(res.data.data)
+            // not the full proof method
+            setSelectedSection(res.data.data[0]?.id)
+            setCurrentSection(0)
         })
     }, [selectedPage])
 
@@ -51,7 +56,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
 
     return (
         <>
-            {showSectionForm ? <SectionForm setShowSectionForm={setShowSectionForm} /> : null}
+            {showSectionForm ? <SectionForm pageId={selectedPage} sections={sections} setSections={setSections} setShowSectionForm={setShowSectionForm} /> : null}
             {showResourceForm ? <ResourceForm setShowResourceForm={setShowResourceForm} /> : null}
 
             <div className="p-2 flex flex-col flex-1">
@@ -59,10 +64,10 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     {sections.map((section, index) => {
                         return <button key={section.id} 
                         onClick={() => {
-                            setCurrentSection(index+1)
+                            setCurrentSection(index)
                             setSelectedSection(section.id)
                         }} 
-                        className={`text-left px-2 py-1 mr-1 bg-gray-300 rounded-t ${index+1 === currentSection ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'}`}>{section.title}</button>
+                        className={`text-left px-2 py-1 mr-1 bg-gray-300 rounded-t ${index === currentSection ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'}`}>{section.title}</button>
                     })}
                     <button onClick={() => setShowSectionForm(true)} className="text-left px-2 py-1 mr-1 rounded-t bg-blue-500 font-bold text-white hover:bg-blue-700">+</button>
                 </div>
