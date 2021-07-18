@@ -5,6 +5,7 @@ import Explore from '../Pages/Explore'
 import Login from '../Pages/Login'
 import NoteDetail from '../Pages/NoteDetail'
 import Note from '../Pages/Note'
+import Page404 from '../Pages/Page404'
 
 function Routes(): ReactElement {
     return (
@@ -21,6 +22,9 @@ function Routes(): ReactElement {
                 </Route>
                 <Route path="/note">
                     <Note />
+                </Route>
+                <Route path="*">
+                    <Page404 />
                 </Route>
             </Switch>
         </Router>
