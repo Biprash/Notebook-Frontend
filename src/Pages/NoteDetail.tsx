@@ -25,7 +25,7 @@ function NoteDetail(): ReactElement {
     const { noteId } = useParams<RouteParams>()
     const [pages, setPages] = useState<Array<Page>>([])
     const [selectedPage, setSelectedPage] = useState<number>(1)
-    const [notePublished, setNotePublished] = useState<Boolean>(location.state.published)
+    const [notePublished, setNotePublished] = useState<Boolean>(location.state?.published)
     
     const handleNotePublish = (e: MouseEvent<HTMLButtonElement>) => {
         // reload garda kam gardaina TODO ...
@@ -56,7 +56,7 @@ function NoteDetail(): ReactElement {
             <Navbar />
             <div className="flex flex-col">
                 <div className="container flex flex-column">
-                    <h1 className="font-bold text-3xl text-gray-800 mx-auto py-2">{location.state.title}</h1>
+                    <h1 className="font-bold text-3xl text-gray-800 mx-auto py-2">{location.state?.title}</h1>
                     <button onClick={handleNotePublish} className={`text-white px-8 my-2 rounded ${notePublished?'bg-red-500 hover:bg-red-500':'bg-blue-500 hover:bg-blue-600'}`}>{notePublished? 'Unpublish Note' : 'Publish Note'}</button>
                 </div>
                 <div className="flex bg-gray-200">
