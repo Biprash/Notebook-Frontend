@@ -7,6 +7,7 @@ interface Note {
     title: string
     description?: string
     cover?: string
+    published: Boolean
 }
 
 interface NoteList {
@@ -29,7 +30,7 @@ function Slick({data}: Props): ReactElement {
                     return(
                         <Link to={{ 
                                 pathname:`/note/${item.id}`,
-                                state: { isPublic: true }
+                                state: { title: item.title, published: item.published, isPublic: true }
                             }} key={item.id} className="bg-white rounded w-64">
                             <img src={item.cover} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
                             <div className="flex flex-col px-4 py-3">

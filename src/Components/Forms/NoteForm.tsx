@@ -5,7 +5,8 @@ interface Note {
     id: number,
     title: string,
     description?: string,
-    cover?: string
+    cover?: string,
+    published: Boolean
 }
 
 interface Props {

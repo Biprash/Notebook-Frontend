@@ -10,6 +10,7 @@ interface Note {
     title: string,
     description?: string,
     cover?: string
+    published: Boolean
 }
 
 function Note(): ReactElement {

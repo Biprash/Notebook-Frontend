@@ -8,6 +8,7 @@ interface Note {
     title: string
     description?: string
     cover?: string
+    published: Boolean
 }
 
 interface NoteList {
