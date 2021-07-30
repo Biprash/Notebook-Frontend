@@ -1,13 +1,16 @@
-import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react'
-import server from '../server/server'
-
+import { ChangeEvent, FormEvent, ReactElement, useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
-import { useHistory } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { login } from '../redux/user/creators'
+import { userSelector } from '../redux/user/userSlice'
 
 function Login(): ReactElement {
-    let history = useHistory()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const userDispatch = useAppDispatch()
+    const {user} = useAppSelector(userSelector)
+    console.log(user,'use');
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value.trim())
@@ -17,22 +20,12 @@ function Login(): ReactElement {
         setPassword(e.target.value.trim())
     }
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => { 
         e.preventDefault()
-        server.get(process.env.REACT_APP_DOMAIN+'/sanctum/csrf-cookie')
-        .then(() => {
-            server.post(process.env.REACT_APP_DOMAIN+'/login', {
-                email: email,
-                password: password
-            })
-            .then(res => {
-                console.log(res, 'res');
-                
-                if (res.data.two_factor === false) {                    
-                    history.push('/note')
-                }
-            })
-        })
+        userDispatch(login({email, password}));
+    }
+    if (user) {        
+        return <Redirect to='note' />
     }
     
     return (
@@ -41,7 +34,7 @@ function Login(): ReactElement {
             <div className="flex justify-center items-center h-screen">
                 <div className="rounded border-2 border-gray-300 p-8">
                     <h1 className="font-semibold text-3xl text-gray-800 pb-2">Login</h1>
-                    <form onSubmit={handleSubmit} method="post" className="flex flex-col">
+                    <form onSubmit={handleSubmit} className="flex flex-col">
                         <label htmlFor="email" className="pt-2">Email</label>
                         <input value={email} onChange={handleEmailChange} className="py-1 px-2 outline-none focus:ring my-2" type="email" name="email" id="email" placeholder="email@example.com" />
                         
