@@ -1,6 +1,5 @@
-import React, { ChangeEvent, Dispatch, FormEvent, ReactElement, SetStateAction, useState } from 'react'
+import { Dispatch, ReactElement, SetStateAction, useState } from 'react'
 import PageForm from './Forms/PageForm'
-// import server from '../server/server'
 
 interface Page {
     id: number
