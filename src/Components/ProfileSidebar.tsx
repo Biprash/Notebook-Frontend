@@ -2,11 +2,7 @@ import { ReactElement } from 'react'
 import {Link} from 'react-router-dom'
 import Book from '../assets/images/books.jpg'
 
-interface Props {
-    
-}
-
-function ProfileSidebar({}: Props): ReactElement {
+function ProfileSidebar(): ReactElement {
     return (
         <div className="max-w-3xl w-64 py-2 px-4 pl-1 flex flex-col border-r border-gray-300">
             <div className="flex flex-row">
