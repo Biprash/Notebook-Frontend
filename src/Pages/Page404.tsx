@@ -2,11 +2,7 @@ import { ReactElement } from 'react'
 import SVG404 from '../assets/images/SVG404.svg'
 import Navbar from '../Components/Navbar'
 
-interface Props {
-    
-}
-
-function Page404({}: Props): ReactElement {
+function Page404(): ReactElement {
     return (
         <>
             <Navbar />
