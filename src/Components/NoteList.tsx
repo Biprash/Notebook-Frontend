@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
-import Book from '../assets/images/books.jpg'
 
 interface Note {
     id: number;

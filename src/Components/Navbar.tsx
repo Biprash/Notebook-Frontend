@@ -1,7 +1,10 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 import { Link } from "react-router-dom";
+import { useAppSelector } from '../redux/hooks';
+import { userSelector } from '../redux/user/userSlice';
 
 function Navbar(): ReactElement {
+    const {user} = useAppSelector(userSelector)
     return (
         <nav className="bg-white">
             <div className="container flex justify-between py-2 items-center">
@@ -17,8 +20,14 @@ function Navbar(): ReactElement {
                     </form>
                 </div>
                 <div className="flex justify-between">
-                    <Link to="/login" className="pr-4 hover:text-blue-600">Login</Link>
-                    <Link to="/login" className="hover:text-blue-600">Register</Link>
+                    {user ?
+                    <Link to="/login" className="pr-4 hover:text-blue-600">Logout</Link>
+                    :
+                    <>
+                        <Link to="/login" className="pr-4 hover:text-blue-600">Login</Link>
+                        <Link to="/login" className="hover:text-blue-600">Register</Link>
+                    </>
+                    }
                 </div>
             </div>
         </nav>
