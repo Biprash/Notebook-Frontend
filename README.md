@@ -41,6 +41,6 @@ The offical Notebook Backend is done using Laravel. You can download the backend
 ## Login credentials for default user
 
 ```
-		email: admin@demo.test
-		password: password
+	email: admin@demo.test
+	password: password
 ```
