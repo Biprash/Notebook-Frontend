@@ -31,7 +31,7 @@ export const fetchUser = (): AppThunk => async (dispatch) => {
         const user = await server.get('/user/user')
         console.log(user, 'user');
         
-        if (user.data)
+        if (user?.data)
             dispatch(getUser(user.data))
     } catch (error) {
         dispatch(authFail(error))
