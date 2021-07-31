@@ -1,8 +1,12 @@
 import React, { ReactElement, useEffect, useState, MouseEvent } from 'react'
+import { Redirect } from 'react-router-dom'
 import NoteForm from '../Components/Forms/NoteForm'
 import Navbar from '../Components/Navbar'
 import NoteList from '../Components/NoteList'
 import ProfileSidebar from '../Components/ProfileSidebar'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { logout } from '../redux/user/creators'
+import { userSelector } from '../redux/user/userSlice'
 import server from '../server/server'
 
 interface Note {
@@ -16,16 +20,27 @@ interface Note {
 function Note(): ReactElement {
     const [notes, setNotes] = useState<Array<Note>>([])
     const [showNewNoteForm, setShowNewNoteForm] = useState<boolean>(false)
+    const {user} = useAppSelector(userSelector)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         server.get('/user/notes')
         .then(res => {
-            setNotes(res.data.data)
+            setNotes(res?.data.data)
+        })
+        .catch(({response}) => {
+            console.log(response);
+            if (response.data.message === "Unauthenticated." && response.status === 401) {
+                dispatch(logout())
+            }
         })
     }, [])
 
     const handleNewNoteFormClick = (e: MouseEvent<HTMLButtonElement>) => {
         setShowNewNoteForm(true)
+    }
+    if (!user) {
+        return <Redirect to='/login' />
     }
 
     return (
