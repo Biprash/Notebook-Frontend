@@ -20,10 +20,6 @@ export const userSlice = createSlice({
             state.loading = false
             state.error = payload.error
         },
-        authLogin: (state, {payload}: PayloadAction<User>) => {            
-            state.loading=false
-            state.user = payload
-        },
         getUser: (state, {payload}: PayloadAction<User>) => {            
             state.loading=false
             state.user = payload
@@ -39,4 +35,4 @@ export const userSlice = createSlice({
 
 export const userSelector = (state: RootState) => state.user
 export const userReducer = userSlice.reducer
-export const { authStart, authFail, authLogin, getUser, authLogout } = userSlice.actions
+export const { authStart, authFail, getUser, authLogout } = userSlice.actions
