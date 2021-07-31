@@ -32,7 +32,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
     const [showResourceForm, setShowResourceForm] = useState<boolean>(false)
     const [sections, setSections] = useState<Array<Section>>([])
     const [resources, setResources] = useState<Array<Resource>>([])
-    const [selectedSection, setSelectedSection] = useState<number>(1)
+    const [selectedSection, setSelectedSection] = useState<number>(0)
     const [currentSection, setCurrentSection] = useState<number>(1)
 
     useEffect(() => {     
