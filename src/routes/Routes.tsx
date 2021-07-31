@@ -6,6 +6,7 @@ import Login from '../Pages/Login'
 import NoteDetail from '../Pages/NoteDetail'
 import Note from '../Pages/Note'
 import Page404 from '../Pages/Page404'
+import Register from '../Pages/Register'
 
 function Routes(): ReactElement {
     return (
@@ -16,6 +17,9 @@ function Routes(): ReactElement {
                 </Route>
                 <Route path="/login">
                     <Login />
+                </Route>
+                <Route path="/register">
+                    <Register />
                 </Route>
                 <Route path="/note/:noteId">
                     <NoteDetail />
