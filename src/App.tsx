@@ -5,10 +5,10 @@ import { userSelector } from './redux/user/userSlice';
 import Routes from './routes/Routes';
 
 function App() {
-  const {user} = useAppSelector(userSelector)
+  const {user, fetched} = useAppSelector(userSelector)
   const dispatch = useAppDispatch()
   useEffect(() => {
-    if (!user) {
+    if (!user && !fetched) {
       dispatch(fetchUser())
     }
   }, [user])
