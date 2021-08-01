@@ -21,10 +21,10 @@ function NoteList({note}: Props): ReactElement {
                 <Link to={{ 
                         pathname:`/note/${note.id}`,
                         state: { title: note.title, published:note.published }
-                    }} className="">
-                        <img src={note.cover} alt="" className="rounded-t h-36 w-full" />
+                    }}>
+                        <img src={note.cover} alt="" className="rounded h-36 w-full" />
                         <h3 className="text-center text-lg capitalize text-gray-800 font-bold my-2">{note.title}</h3>
-                    <p className=" text-sm text-gray-500 capitalize  mb-8 h-14 overflow-auto text-center" > Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores facilis consectetur dolorum quae ad sequi, aliquid neque pariatur. Fugiat, veritatis? </p>
+                    <p className=" text-sm text-gray-500 capitalize  mb-8 h-14 overflow-auto text-center" > {note.description} </p>
                     
                 </Link>
                 </div>
@@ -32,7 +32,7 @@ function NoteList({note}: Props): ReactElement {
                    <hr></hr>
                     <div className="flex justify-around mt-1 ">
                         <Link to="#"> <i className="fas fa-trash-alt"></i></Link>
-                        <Link to="#"><i className="fas fa-pen-nib"></i></Link>
+                        <Link to="#"><i className="fas fa-pencil-alt"></i></Link>
                     </div>
                 </div>
             </article>   
