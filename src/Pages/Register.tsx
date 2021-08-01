@@ -36,7 +36,7 @@ function Register(): ReactElement {
         userDispatch(register({name, email, password, confirmPassword}));
     }
     if (user) {        
-        return <Redirect to='note' />
+        return <Redirect to='/note' />
     }
     
     return (

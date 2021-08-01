@@ -26,7 +26,7 @@ function Login(): ReactElement {
         userDispatch(login({email, password}));
     }
     if (user) {        
-        return <Redirect to='note' />
+        return <Redirect to='/note' />
     }
     
     return (
