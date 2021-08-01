@@ -1,0 +1,35 @@
+.logincard{
+    width: 400px;
+    @apply mx-auto my-12 rounded-xl bg-gray-50 p-7 shadow-2xl;
+    /* box-shadow: 3px 7px 22px rgba(10, 0, 0, 0.1); */
+}
+
+.title{
+    @apply text-center font-bold   capitalize text-2xl m-0 text-gray-700;
+}
+.subtitle{
+    @apply capitalize text-center font-medium text-gray-700;
+}
+
+  .email-login {
+      @apply flex flex-col;
+  
+  }
+  .email-login label {
+    color: rgb(170 166 166);
+    @apply mt-3
+  }
+  
+  .login--input {
+      @apply py-4 px-5 mt-2 border border-solid rounded-lg box-border mb-4 border-white;
+  }
+
+  .cta-btn {
+    background-color: rgb(69, 69, 185);
+    @apply text-white py-4 px-5 mt-3 mb-5 w-full rounded-xl border-0;
+  }
+  
+  .forget-pass {
+      @apply text-center block my-4;
+
+  }

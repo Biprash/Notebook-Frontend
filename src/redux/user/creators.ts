@@ -67,7 +67,7 @@ export const register = ({name, email, password, confirmPassword}: Register): Ap
         })
         console.log(response, 'res');
         
-        if (response.data?.two_factor === false) {
+        if (response.data === "") {
             const user = await server.get('/user/user')
             console.log(user, 'user');
             
