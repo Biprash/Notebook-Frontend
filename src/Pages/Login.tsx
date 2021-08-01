@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, ReactElement, useState } from 'react'
 import { Redirect , Link } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { login } from '../redux/user/creators'
 import { userSelector } from '../redux/user/userSlice';
@@ -31,7 +30,6 @@ function Login(): ReactElement {
     
     return (
         <>
-        <Navbar />
             {/* <div className="flex justify-center items-center h-screen">
                 <div className="w-11/12 sm:w-7/12 md:5/12 lg:w-5/12 xl:w-4/12 mdrounded border-2 border-gray-300 p-8">
                     <h1 className="font-semibold text-3xl text-gray-800 pb-2">Login</h1>
@@ -48,7 +46,7 @@ function Login(): ReactElement {
 
        <div className="logincard"> 
             <h2 className="title">log in</h2>
-            <p className=" subtitle"> don't have an account?<Link to="/signup" className="ml-2 cursor-pointer text-blue-700"> Sign up</Link></p>
+            <p className=" subtitle"> don't have an account?<Link to="/register" className="ml-2 cursor-pointer text-blue-700"> Sign up</Link></p>
           
                 <form onSubmit={handleSubmit}>
                 <div className="email-login">
