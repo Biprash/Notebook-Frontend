@@ -1,5 +1,5 @@
-import { ReactElement, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Dispatch, ReactElement, SetStateAction, useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import server from '../server/server'
 
 interface Note {
@@ -12,10 +12,21 @@ interface Note {
 
 interface Props {
     search: string
+    setSearch: Dispatch<SetStateAction<string>>
 }
 
-function Search({search}: Props): ReactElement {    
+function Search({search, setSearch}: Props): ReactElement {    
+    const location = useLocation()
+    const [previousPath, setPreviousPath] = useState<string>('')
     const [noteList, setNoteList] = useState<Array<Note>>([])
+
+    useEffect(() => {
+        if ( previousPath && (previousPath !== location.pathname)) {
+            setSearch('')
+        }
+        setPreviousPath(location.pathname)
+        
+    }, [location])
 
     useEffect(() => {
         console.log('me');

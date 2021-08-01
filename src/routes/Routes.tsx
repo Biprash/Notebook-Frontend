@@ -11,12 +11,11 @@ import Navbar from '../Components/Navbar'
 import Search from '../Pages/Search'
 
 function Routes(): ReactElement {
-    
     const [search, setSearch] = useState<string>('')
     return (
         <Router>
             <Navbar search={search} setSearch={setSearch} />
-            {search ? <Search search={search} /> :
+            {  search ? <Search setSearch={setSearch} search={search} /> :
             <Switch>
                 <Route exact path="/">
                     <Explore />
@@ -27,9 +26,6 @@ function Routes(): ReactElement {
                 <Route path="/register">
                     <Register />
                 </Route>
-                {/* <Route path="/search">
-                    <Search />
-                </Route> */}
                 <Route path="/note/:noteId">
                     <NoteDetail />
                 </Route>
