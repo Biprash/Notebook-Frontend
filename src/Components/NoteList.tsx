@@ -16,26 +16,26 @@ interface Props {
 function NoteList({note}: Props): ReactElement {
     return (
         <>
-        <article className="item--card">
-                <h2 className="text-center font-bold text-lg capitalize text-gray-700 my-3">title</h2>
-                <div className="card--image bg-red-200 h-32 w-full max-w-full">
+             <article className="note--cards">
+                <div className="max-w-full">
                 <Link to={{ 
-            pathname:`/note/${note.id}`,
-            state: { title: note.title, published:note.published }
-        }} className="bg-white rounded w-40 m-2 max-h-52">
-            {/* <img src={note.cover} alt="" className="rounded-t h-32 bg-no-repeat" /> */}
-        </Link>
+                        pathname:`/note/${note.id}`,
+                        state: { title: note.title, published:note.published }
+                    }} className="">
+                        <img src={note.cover} alt="" className="rounded-t h-36 w-full" />
+                        <h3 className="text-center text-lg capitalize text-gray-800 font-bold my-2">{note.title}</h3>
+                    <p className=" text-sm text-gray-500 capitalize  mb-8 h-14 overflow-auto text-center" > Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores facilis consectetur dolorum quae ad sequi, aliquid neque pariatur. Fugiat, veritatis? </p>
+                    
+                </Link>
                 </div>
                 <div className="card--title">
-                    <h3 className="text-center text-lg capitalize text-gray-700 my-2">title</h3>
-                    <p className=" text-sm text-gray-500 capitalize text-left mb-8 h-16 overflow-auto" > description  </p>
-                    <hr></hr>
+                   <hr></hr>
                     <div className="flex justify-around mt-1 ">
-                        <Link to="#"> delete <i className="fas fa-trash-alt"></i></Link>
-                        <Link to="#"> edit <i className="fas fa-pen-nib"></i></Link>
+                        <Link to="#"> <i className="fas fa-trash-alt"></i></Link>
+                        <Link to="#"><i className="fas fa-pen-nib"></i></Link>
                     </div>
                 </div>
-            </article>
+            </article>   
         </>
     )
 }
