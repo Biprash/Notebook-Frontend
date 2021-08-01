@@ -1,5 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
-import Navbar from '../Components/Navbar'
+import { ReactElement, useEffect, useState } from 'react'
 import Slick from '../Components/Slick'
 import server from '../server/server'
 
@@ -26,15 +25,12 @@ function Explore(): ReactElement {
         })
     }, [])
     return (
-        <>
-            <Navbar />
-            <div className="container">
-                {                
-                explores && explores.map((explore, index) => {                                                                         
-                    return <Slick key={index} data={explore}/>
-                })}
-            </div>
-        </>
+        <div className="container">
+            {                
+            explores && explores.map((explore, index) => {    
+                return explore?.data ? <Slick key={index} data={explore}/> : null
+            })}
+        </div>
     )
 }
 
