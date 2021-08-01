@@ -41,7 +41,7 @@ function Register(): ReactElement {
     return (
         <div className="logincard"> 
             <h2 className="title">Sign Up</h2>
-            <p className=" subtitle"> Have an account?<Link to="#" className="ml-2 cursor-pointer text-blue-700"> Sign In</Link></p>
+            <p className=" subtitle"> Have an account?<Link to="/login" className="ml-2 cursor-pointer text-blue-700"> Sign In</Link></p>
                 <form onSubmit={handleSubmit}>
                 <div className="email-login">
                      <label htmlFor="email"> <b>Name</b></label>
