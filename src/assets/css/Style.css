@@ -10,23 +10,6 @@
 .subtitle{
     @apply capitalize text-center font-medium text-gray-700;
 }
-.social-container{
-    @apply my-5 block pl-14 w-full cursor-pointer ;
-}
-.social{
-    @apply  border border-solid rounded-full inline-flex justify-center mx-4 items-center h-10 w-10;
-    border-color:  rgb(69, 69, 185);
-    color: rgb(69, 69, 185);
-}
-
-.or {
-    @apply text-center font-bold my-6 text-gray-700 ;
-    border-bottom: 2px solid rgb(245 239 239);
-    line-height: 0.1em;
-  }
-  .or span {
-      @apply bg-gray-50 px-3;
-  }
 
   .email-login {
       @apply flex flex-col;
@@ -37,8 +20,7 @@
     @apply mt-3
   }
   
-  .login--input[type="text"],
-  .login--input[type="password"] {
+  .login--input {
       @apply py-4 px-5 mt-2 border border-solid rounded-lg box-border mb-4 border-white;
   }
 
