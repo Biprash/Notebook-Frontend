@@ -78,7 +78,7 @@ function Note(): ReactElement {
             </button>
             <div className="item--cards">
                    {notes && notes.map(note => {
-                        return <NoteList key={note.id} note={note} />
+                        return <NoteList key={note.id} notes={notes} setNotes={setNotes} note={note} />
                     })}  
             </div>
             </div>
