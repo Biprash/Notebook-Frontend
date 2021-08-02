@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { logout } from '../redux/user/creators';
 import { userSelector } from '../redux/user/userSlice';
+import Logo from '../assets/images/logo.png'
+
 
 interface Props {
     search: string
@@ -20,7 +22,7 @@ function Navbar({search, setSearch}: Props): ReactElement {
         <nav className="bg-white">
             <div className="container flex justify-between py-2 items-center">
                 <div className="">
-                    <Link to="/">Notebook</Link>
+                    <Link to="/"><img src={Logo} className="h-10"></img></Link>
                 </div>
                 <div className="flex items-center">
                     <Link to="/" className="pr-8 hover:text-blue-600">Explore</Link>
