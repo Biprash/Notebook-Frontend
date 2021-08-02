@@ -1,5 +1,10 @@
 import { Dispatch, ReactElement, SetStateAction, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import PageForm from './Forms/PageForm'
+
+interface LocationState {
+    isPublic?: Boolean | undefined
+}
 
 interface Page {
     id: number
@@ -13,6 +18,7 @@ interface Props {
 }
 
 function NoteSidebar({pages, setPages, setSelectedPage}: Props): ReactElement {
+    let location = useLocation<LocationState>()
     const [showPageForm, setShowPageForm] = useState<boolean>(false)
     const [currentPage, setCurrentPage] = useState<number>(0)
     return (
@@ -27,7 +33,9 @@ function NoteSidebar({pages, setPages, setSelectedPage}: Props): ReactElement {
                     }} 
                     className={`text-left text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 ${index === currentPage && 'bg-white'}`}>{page.title}</button>
                 })}
+                {!location.state?.isPublic ? 
                 <button onClick={() => setShowPageForm(true)} className="bg-blue-500 text-white py-1 text-sm hover:bg-blue-600">Add Page</button>
+                : null }
             </div>
         </>
     )

@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import { Dispatch, MouseEvent, ReactElement, SetStateAction } from 'react'
 import { Link } from 'react-router-dom'
+import server from '../server/server'
 
 interface Note {
     id: number;
@@ -11,9 +12,36 @@ interface Note {
 
 interface Props {
     note: Note
+    notes: Note[]
+    setNotes: Dispatch<SetStateAction<Note[]>>
+    setUpdatingNote: Dispatch<SetStateAction<Note | null>>
+    setShowNewNoteForm: Dispatch<SetStateAction<boolean>>
 }
 
-function NoteList({note}: Props): ReactElement {
+function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: Props): ReactElement {
+
+    const handleNoteDelete = (e: MouseEvent<HTMLButtonElement>, note: Note) => {
+        server.delete(`/user/notes/${note.id}`)
+        .then(res => {
+            if (res.data?.data) {
+                var array = [...notes];
+                var index = array.indexOf(note)
+                if (index !== -1) {
+                    array.splice(index, 1);
+                    setNotes(array);
+                }
+            }
+        })
+        .catch(({response}) => {
+            console.log(response.data?.message);            
+        })
+    }
+
+    const handleNoteUpdate = (e: MouseEvent<HTMLButtonElement>, note: Note) => {
+        setUpdatingNote(note)
+        setShowNewNoteForm(true)
+    }
+
     return (
         <>
              <article className="note--cards">
@@ -30,9 +58,9 @@ function NoteList({note}: Props): ReactElement {
                 </div>
                 <div className="card--title">
                    <hr></hr>
-                    <div className="flex justify-around mt-1 ">
-                        <Link to="#"> <i className="fas fa-trash-alt"></i></Link>
-                        <Link to="#"><i className="fas fa-pencil-alt"></i></Link>
+                    <div className="flex justify-around">
+                        <button onClick={e => handleNoteDelete(e, note)} className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-trash-alt"></i></button>
+                        <button onClick={e => handleNoteUpdate(e, note)} className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-pencil-alt"></i></button>
                     </div>
                 </div>
             </article>   
