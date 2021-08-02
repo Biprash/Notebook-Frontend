@@ -16,10 +16,6 @@ function Navbar({search, setSearch}: Props): ReactElement {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
     }
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-    }
     return (
         <nav className="bg-white">
             <div className="container flex justify-between py-2 items-center">
