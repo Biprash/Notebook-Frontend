@@ -7,11 +7,13 @@ import Routes from './routes/Routes';
 function App() {
   const {user, fetched} = useAppSelector(userSelector)
   const dispatch = useAppDispatch()
+
   useEffect(() => {
     if (!user && !fetched) {
       dispatch(fetchUser())
     }
   }, [user])
+  
   return (
     <div className="min-h-screen bg-gray-100">
       <Routes />

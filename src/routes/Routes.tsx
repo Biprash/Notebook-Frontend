@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Explore from '../Pages/Explore'
@@ -7,10 +7,15 @@ import NoteDetail from '../Pages/NoteDetail'
 import Note from '../Pages/Note'
 import Page404 from '../Pages/Page404'
 import Register from '../Pages/Register'
+import Navbar from '../Components/Navbar'
+import Search from '../Pages/Search'
 
 function Routes(): ReactElement {
+    const [search, setSearch] = useState<string>('')
     return (
         <Router>
+            <Navbar search={search} setSearch={setSearch} />
+            {  search ? <Search setSearch={setSearch} search={search} /> :
             <Switch>
                 <Route exact path="/">
                     <Explore />
@@ -31,6 +36,7 @@ function Routes(): ReactElement {
                     <Page404 />
                 </Route>
             </Switch>
+            }
         </Router>
     )
 }
