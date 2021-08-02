@@ -21,7 +21,7 @@ function Routes(): ReactElement {
                 <Route exact path="/">
                     <Homepage/>
                 </Route>
-                <Route  path="/">
+                <Route  path="/explore">
                     <Explore />
 
                 </Route>
