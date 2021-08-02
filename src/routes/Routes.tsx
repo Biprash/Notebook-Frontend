@@ -9,6 +9,7 @@ import Page404 from '../Pages/Page404'
 import Register from '../Pages/Register'
 import Navbar from '../Components/Navbar'
 import Search from '../Pages/Search'
+import Bookmark from '../Pages/Bookmark'
 
 function Routes(): ReactElement {
     const [search, setSearch] = useState<string>('')
@@ -25,6 +26,9 @@ function Routes(): ReactElement {
                 </Route>
                 <Route path="/register">
                     <Register />
+                </Route>
+                <Route path="/bookmarks">
+                    <Bookmark />
                 </Route>
                 <Route path="/note/:noteId">
                     <NoteDetail />

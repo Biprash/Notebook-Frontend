@@ -58,7 +58,7 @@ function ProfileSidebar(): ReactElement {
                         <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Forked Notes</Link>
                     </li>
                     <li className="my-3">
-                        <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Bookmarks</Link>
+                        <Link to="/bookmarks" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Bookmarks</Link>
                     </li>
                     <li className="my-3">
                       <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Groupings</Link>
