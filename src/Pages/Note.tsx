@@ -20,6 +20,7 @@ interface Note {
 
 function Note(): ReactElement {
     const [notes, setNotes] = useState<Array<Note>>([])
+    const [updatingNote, setUpdatingNote] = useState<Note | null>(null)
     const [showNewNoteForm, setShowNewNoteForm] = useState<boolean>(false)
     const {user} = useAppSelector(userSelector)
     const dispatch = useAppDispatch()
@@ -38,6 +39,7 @@ function Note(): ReactElement {
     }, [])
 
     const handleNewNoteFormClick = (e: MouseEvent<HTMLButtonElement>) => {
+        setUpdatingNote(null)
         setShowNewNoteForm(true)
     }
     if (!user) {
@@ -46,8 +48,7 @@ function Note(): ReactElement {
 
     return (
         <>
-            {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} notes={notes} setNotes={setNotes} />: null}
-            
+            {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} notes={notes} setNotes={setNotes} updatingNote={updatingNote} />: null}
             
             {/* <div className="flex bg-gray-200">
                 <ProfileSidebar />
@@ -80,7 +81,7 @@ function Note(): ReactElement {
             </button>
             <div className="item--cards">
                    {notes && notes.map(note => {
-                        return <NoteList key={note.id} note={note} />
+                        return <NoteList key={note.id} notes={notes} setNotes={setNotes} setUpdatingNote={setUpdatingNote} setShowNewNoteForm={setShowNewNoteForm} note={note} />
                     })}  
             </div>
             </main>
