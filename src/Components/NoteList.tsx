@@ -50,9 +50,10 @@ function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: 
                         pathname:`/note/${note.id}`,
                         state: { title: note.title, published:note.published }
                     }}>
-                        <img src={note.cover} alt="" className="rounded w-full h-40" />
                         <h3 className="text-center text-lg capitalize text-gray-800 font-bold my-2">{note.title}</h3>
-                    <p className=" text-sm text-gray-500 capitalize  mb-8 h-14 overflow-auto text-center" > {note.description} </p>
+                        <img src={note.cover} alt="" className="w-full h-40 object-cover" />
+                        
+                    <p className=" text-sm text-gray-500 capitalize  my-6 h-14 overflow-auto text-center " > {note.description} </p>
                     
                 </Link>
                 </div>
