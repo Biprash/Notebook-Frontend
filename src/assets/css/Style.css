@@ -39,15 +39,21 @@
   /* cardlist */
 .item--cards{
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 	grid-gap: 15px;
 	align-items: stretch;
 	height: 300px;
     margin-left: 20px;
-    max-height: 300px;
+    max-height: 348px;
 }
 
 .note--cards{
+    border: 1px solid  white;
+	border-radius: 5px;
+	box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
+    background: white;
+}
+.explore{
     border: 1px solid  white;
 	border-radius: 5px;
 	box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
