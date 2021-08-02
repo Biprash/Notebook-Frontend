@@ -1,6 +1,7 @@
 .logincard{
     width: 400px;
-    @apply mx-auto my-12 rounded-xl bg-gray-50 p-7 shadow-2xl;
+    
+    @apply mx-auto my-20 rounded-xl bg-white p-7 shadow-2xl;
     /* box-shadow: 3px 7px 22px rgba(10, 0, 0, 0.1); */
 }
 

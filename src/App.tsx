@@ -15,7 +15,7 @@ function App() {
   }, [user])
   
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div>
       <Routes />
     </div>
   );
