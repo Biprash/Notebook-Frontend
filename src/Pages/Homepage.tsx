@@ -1,11 +1,10 @@
-import React from 'react'
+import { ReactElement } from 'react'
 import {Link} from 'react-router-dom';
 import HomeImg1 from '../assets/images/img1.png'
 import HomeImg2 from '../assets/images/img2.png'
 import Footer from '../Components/Footer'
 
-
-function Homepage() {
+function Homepage(): ReactElement {
     return (
         <>
             <div className="w-auto max-w-screen-2xl bg-white-900">
