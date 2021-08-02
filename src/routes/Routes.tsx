@@ -10,6 +10,7 @@ import Register from '../Pages/Register'
 import Navbar from '../Components/Navbar'
 import Search from '../Pages/Search'
 import Bookmark from '../Pages/Bookmark'
+import Homepage from '../Pages/Homepage';
 
 function Routes(): ReactElement {
     const [search, setSearch] = useState<string>('')
@@ -19,7 +20,11 @@ function Routes(): ReactElement {
             {  search ? <Search setSearch={setSearch} search={search} /> :
             <Switch>
                 <Route exact path="/">
+                    <Homepage/>
+                </Route>
+                <Route  path="/explore">
                     <Explore />
+
                 </Route>
                 <Route path="/login">
                     <Login />
