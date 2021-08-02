@@ -9,7 +9,7 @@ function Homepage() {
     return (
         <>
             <div className="w-auto max-w-screen-2xl bg-white-900">
-            <section className="grid grid-cols-1 mt-5 md:grid-cols-2" id="hero-section">
+            <section className="grid grid-cols-1 mt-14 md:grid-cols-2" id="hero-section">
             <div className="flex flex-col items-center justify-center row-start-1 m-5 md:items-start">
                 <h1 className="text-4xl font-medium leading-7 tracking-tighter md:text-6xl">Easy Note For all</h1>
                 <p className="pt-10 mb-8 text-lg font-medium leading-8 text-gray-600 md:text-2xl">Make it share it and learn it</p>
