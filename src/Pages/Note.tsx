@@ -30,7 +30,7 @@ function Note(): ReactElement {
         .then(res => {
             setNotes(res?.data.data)
         })
-        .catch(({response}) => {
+        .catch(( {response}) => {
             console.log(response);
             if (response.data.message === "Unauthenticated." && response.status === 401) {
                 dispatch(logout())
