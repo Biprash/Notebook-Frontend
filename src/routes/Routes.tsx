@@ -8,7 +8,8 @@ import Note from '../Pages/Note'
 import Page404 from '../Pages/Page404'
 import Register from '../Pages/Register'
 import Navbar from '../Components/Navbar'
-import Search from '../Pages/Search';
+import Search from '../Pages/Search'
+import Bookmark from '../Pages/Bookmark'
 import Homepage from '../Pages/Homepage';
 
 function Routes(): ReactElement {
@@ -30,6 +31,9 @@ function Routes(): ReactElement {
                 </Route>
                 <Route path="/register">
                     <Register />
+                </Route>
+                <Route path="/bookmarks">
+                    <Bookmark />
                 </Route>
                 <Route path="/note/:noteId">
                     <NoteDetail />
