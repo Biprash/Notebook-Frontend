@@ -36,19 +36,19 @@ function Slick({data}: Props): ReactElement {
                 // console.log(item.cover);
                 return(
                     <Link to={{ 
-                            pathname:`/note/${item.id}`,
-                            state: { title: item.title, published: item.published, isPublic: true }
-                          }} key={item.id} className="bg-white rounded w-64">
-                    <div >
-                        <img  src={item.cover} alt="" className="rounded h-32 w-full bg-cover bg-center bg-no-repeat" />
-
-                            </div>                           
+                                pathname:`/note/${item.id}`,
+                                state: { title: item.title, published: item.published, isPublic: true }
+                                 }} key={item.id} className="bg-white rounded w-64">
+                                             
                              <div className="flex flex-col px-4 py-3   ">
                         
                                 <h2 className="font-bold capitalize text-lg py-1  ">{item.title}</h2>
-                               <div className=""> <p className="py-2">{item.description}</p></div> 
+                                <div>
+                                 <img  src={item.cover} alt="" className="rounded h-32 w-full bg-cover bg-center bg-no-repeat" />
+                                 </div> 
+                                <div className=""> <p className="py-2"> <strong className="capitalize font-sans">illustrate:</strong><br/>{item.description}</p></div> 
                                  </div>
-                    </Link>
+                        </Link> 
                 )
             })}
                 {/* </div> */}
