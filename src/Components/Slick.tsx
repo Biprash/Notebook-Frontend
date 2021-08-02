@@ -48,7 +48,7 @@ function Slick({data}: Props): ReactElement {
                                 <div>
                                  <img  src={item.cover} alt="" className="rounded h-32 mt-4 w-full bg-cover bg-center bg-no-repeat" />
                                  </div> 
-                                <div className=""> <p className="py-2 "><br/>{item.description}</p></div> 
+                                <div className=""> <p className="py-2 overflow-auto "><br/>{item.description}</p></div> 
                               </div>
                         </Link> 
                 )
