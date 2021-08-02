@@ -1,7 +1,6 @@
-import React, { ReactElement, useEffect, useState, MouseEvent } from 'react'
+import { ReactElement, useEffect, useState, MouseEvent } from 'react'
 import { Redirect } from 'react-router-dom'
 import NoteForm from '../Components/Forms/NoteForm'
-import Navbar from '../Components/Navbar'
 import NoteList from '../Components/NoteList'
 import ProfileSidebar from '../Components/ProfileSidebar'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
@@ -46,7 +45,6 @@ function Note(): ReactElement {
     return (
         <>
             {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} notes={notes} setNotes={setNotes} />: null}
-            <Navbar />
             <div className="flex bg-gray-200">
                 <ProfileSidebar />
                 <div className="flex flex-wrap flex-1 p-2">

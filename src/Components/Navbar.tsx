@@ -1,12 +1,25 @@
-import { ReactElement } from 'react'
+import { ChangeEvent, FormEvent, Dispatch, ReactElement, useState, SetStateAction } from 'react'
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { logout } from '../redux/user/creators';
 import { userSelector } from '../redux/user/userSlice';
 
-function Navbar(): ReactElement {
+interface Props {
+    search: string
+    setSearch: Dispatch<SetStateAction<string>>
+}
+
+function Navbar({search, setSearch}: Props): ReactElement {
     const {user} = useAppSelector(userSelector)
     const dispatch = useAppDispatch()
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+    }
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+    }
     return (
         <nav className="bg-white">
             <div className="container flex justify-between py-2 items-center">
@@ -16,10 +29,7 @@ function Navbar(): ReactElement {
                 <div className="flex items-center">
                     <Link to="/" className="pr-8 hover:text-blue-600">Explore</Link>
                     <Link to="/note" className="pr-8 hover:text-blue-600">New Note</Link>
-                    <form method="get">
-                        <input className="border mr-4 rounded focus:outline-none px-2 py-1" type="search" name="search" id="search" />
-                        <input className="px-4 py-1 rounded border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white" type="submit" value="Search" />
-                    </form>
+                    <input value={search} onChange={handleChange} className="border mr-4 rounded focus:outline-none px-2 py-1" type="search" name="search" placeholder="Search" id="search" />
                 </div>
                 <div className="flex justify-between">
                     {user ?
