@@ -45,7 +45,7 @@ function Bookmark(): ReactElement {
         <>
             {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} notes={notes} setNotes={setNotes} updatingNote={updatingNote} />: null}
             
-            <ProfileSidebar />
+            <ProfileSidebar selected="Bookmarks" />
             <main className="ml-64 p-3 h-auto">
                 <h1 className="font-bold text-3xl text-gray-800 py-2">Bookmarked Notes</h1>
                 <div className="item--cards">

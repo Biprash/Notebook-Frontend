@@ -55,7 +55,7 @@ function Note(): ReactElement {
                 <ProfileSidebar />
                 <div className="flex flex-wrap flex-1 p-2"> */}
                 
-            <ProfileSidebar />
+            <ProfileSidebar selected="All Notes" />
 
             {/* <div className="item--cards">
                 <div className="flex">
