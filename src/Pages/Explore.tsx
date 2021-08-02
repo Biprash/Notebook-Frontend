@@ -33,11 +33,11 @@ function Explore(): ReactElement {
         <div className="container ">
             {/* <div className="item--cards"> */}
             <div className="flex justify-center">
-                    <h1 className="font-sans font-semibold text-6xl mt-28 text-purple-600" > Explore More Notes </h1> 
+                    <h1 className="font-sans font-semibold text-8xl mt-28 text-black-600" > Explore More Notes </h1> 
                     </div>
-                    <div className="flex justify-center capitalize text-6xl mt-32">
+                    {/* <div className="flex justify-center capitalize text-6xl mt-32">
                         <p>There are no wrong notes. if your mindset is differenr than only you can vary other notes</p>
-                    </div>
+                    </div> */}
                
                 
                 {    

@@ -24,8 +24,8 @@ interface Props {
 function Slick({data}: Props): ReactElement {
     
     return (
-        <div className="mt-72 ">
-            <h1 className="text-4xl font-bold my-6 w-72 h-16 bg-purple-600 flex justify-center rounded-lg  text-white ">{data.title}</h1>
+        <div className="mt-56 ">
+            <h1 className="text-4xl font-bold my-6   ">{data.title}</h1>
 
             {/* <div className="explore"> */}
 
@@ -44,11 +44,11 @@ function Slick({data}: Props): ReactElement {
                                              
                              <div className="flex flex-col w-60 h-80  px-4 py-3  hover:shadow-2xl ">
                         
-                                <h2 className="font-bold capitalize text-lg py-1  ">{item.title}</h2>
+                                <h2 className="font-bold capitalize text-lg py-1 mx-auto ">{item.title}</h2>
                                 <div>
                                  <img  src={item.cover} alt="" className="rounded h-32 mt-4 w-full bg-cover bg-center bg-no-repeat" />
                                  </div> 
-                                <div className=""> <p className="py-2 mt-4"> <strong className="capitalize font-sans">illustrate:</strong><br/>{item.description}</p></div> 
+                                <div className=""> <p className="py-2 "><br/>{item.description}</p></div> 
                               </div>
                         </Link> 
                 )
