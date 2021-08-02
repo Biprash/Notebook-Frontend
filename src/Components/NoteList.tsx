@@ -14,9 +14,11 @@ interface Props {
     note: Note
     notes: Note[]
     setNotes: Dispatch<SetStateAction<Note[]>>
+    setUpdatingNote: Dispatch<SetStateAction<Note | null>>
+    setShowNewNoteForm: Dispatch<SetStateAction<boolean>>
 }
 
-function NoteList({note, notes, setNotes}: Props): ReactElement {
+function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: Props): ReactElement {
 
     const handleNoteDelete = (e: MouseEvent<HTMLButtonElement>, note: Note) => {
         server.delete(`/user/notes/${note.id}`)
@@ -34,6 +36,12 @@ function NoteList({note, notes, setNotes}: Props): ReactElement {
             console.log(response.data?.message);            
         })
     }
+
+    const handleNoteUpdate = (e: MouseEvent<HTMLButtonElement>, note: Note) => {
+        setUpdatingNote(note)
+        setShowNewNoteForm(true)
+    }
+
     return (
         <>
              <article className="note--cards">
@@ -52,7 +60,7 @@ function NoteList({note, notes, setNotes}: Props): ReactElement {
                    <hr></hr>
                     <div className="flex justify-around">
                         <button onClick={e => handleNoteDelete(e, note)} className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-trash-alt"></i></button>
-                        <button className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-pencil-alt"></i></button>
+                        <button onClick={e => handleNoteUpdate(e, note)} className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-pencil-alt"></i></button>
                     </div>
                 </div>
             </article>   
