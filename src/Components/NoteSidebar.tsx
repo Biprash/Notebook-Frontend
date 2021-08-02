@@ -24,17 +24,25 @@ function NoteSidebar({pages, setPages, setSelectedPage}: Props): ReactElement {
     return (
         <>
             {showPageForm ? <PageForm setShowPageForm={setShowPageForm}  pages={pages} setPages={setPages} /> : null}
-            <div className="max-w-3xl w-64 py-2 px-4 flex flex-col border-r border-gray-300">
+            <div className="fixed inset-y-0 left-0 flex flex-col bg-gray-200 shadow-xl p-1 mt-14 w-64 h-full">
                 { pages && pages.map((page, index) => {
-                    return <button key={page.id} 
-                    onClick={() => {
-                        setSelectedPage(page.id)
-                        setCurrentPage(index)
-                    }} 
-                    className={`text-left text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 ${index === currentPage && 'bg-white'}`}>{page.title}</button>
+                    return (
+                        <>
+                        <div className=" flex ">
+                            <button key={page.id} 
+                            onClick={() => {
+                                setSelectedPage(page.id)
+                                setCurrentPage(index)
+                            }} 
+                            className={`text-left text-gray-700 py-1 px-4 my-1 mx-2 w-9/12 capitalize rounded hover:bg-gray-100 ${index === currentPage && 'bg-white'}`}>{page.title}</button>
+                            <button><i className="mr-2 fas fa-trash-alt"></i></button>
+                            <button><i className="fas fa-pencil-alt"></i></button>                            
+                        </div>
+                  </>
+                    )
                 })}
                 {!location.state?.isPublic ? 
-                <button onClick={() => setShowPageForm(true)} className="bg-blue-500 text-white py-1 text-sm hover:bg-blue-600">Add Page</button>
+                <button onClick={() => setShowPageForm(true)} className="bg-blue-500 text-white py-2 my-4 mx-2 rounded text-sm hover:bg-blue-600">Add Page</button>
                 : null }
             </div>
         </>

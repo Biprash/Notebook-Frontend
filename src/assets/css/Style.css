@@ -18,7 +18,7 @@
   }
   .email-login label {
     color: rgb(170 166 166);
-    @apply mt-3
+    @apply mt-3;
   }
   
   .login--input {
@@ -42,7 +42,7 @@
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	grid-gap: 15px;
 	align-items: stretch;
-	height: 650px;
+	height: 300px;
     margin-left: 20px;
     max-height: 300px;
 }
@@ -54,4 +54,22 @@
     background: white;
 }
 
-/* sidebar */
+/*  */
+
+.note-content-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    width: 100%;
+}
+
+@media (max-width: 1080px) { /*breakpoint*/
+    .note-content-card {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 768px) { /*breakpoint*/
+    .note-content-card {
+      grid-template-columns: none;
+    }
+  }
