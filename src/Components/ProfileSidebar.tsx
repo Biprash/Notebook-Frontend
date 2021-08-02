@@ -42,8 +42,8 @@ function ProfileSidebar(): ReactElement {
 					</div>
 					<div className=" h-full mx-3">
                         <h3 className="font-bold capitalize">Sanjiv Chaudhary</h3>
-                       <div className="flex flex-row content-center "> <img src={hat}/><p className="pl-1 py-1 text-base truncate">Kist College</p></div>
-                       <div className="flex flex-row content-center"> <img src={email}/><p className="pl-1 text-base truncate">biprashgautam@gmail.com</p></div>
+                       <div className="flex flex-row content-center "> <img src={hat} alt="hat"/><p className="pl-1 py-1 text-base truncate">Kist College</p></div>
+                       <div className="flex flex-row content-center"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">biprashgautam@gmail.com</p></div>
                         <div className="py-2">
                             <p className="text-base">I am avaiable on:</p>
                             <div className="flex justify-between py-2">
