@@ -3,14 +3,15 @@ import {Link} from 'react-router-dom'
 import Book from '../assets/images/books.jpg'
 import email from '../assets/images/email.svg'
 import hat from '../assets/images/hat.svg'
-
-
+import { useAppSelector } from '../redux/hooks'
+import { userSelector } from '../redux/user/userSlice'
 
 interface Props {
     selected?: "All Notes" | "Bookmarks"
 }
 
 function ProfileSidebar({selected}: Props): ReactElement {
+    const {user} = useAppSelector(userSelector)
     return (
         <nav className="fixed inset-y-0 left-0 bg-gray-200 shadow-xl p-1 mt-14 w-100">  
                	<div className="flex h-40 w-full mt-2">
@@ -20,9 +21,9 @@ function ProfileSidebar({selected}: Props): ReactElement {
 					
                     </div>
 					<div className=" h-full mx-3">
-                        <h3 className="font-bold capitalize">Sanjiv Chaudhary</h3>
+                        <h3 className="font-bold capitalize">{user?.name}</h3>
                        <div className="flex flex-row content-center "> <img src={hat} alt="hat"/><p className="pl-1 py-1 text-base truncate">Kist College</p></div>
-                       <div className="flex flex-row content-center"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">biprashgautam@gmail.com</p></div>
+                       <div className="flex flex-row content-center"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">{user?.email}</p></div>
                         <div className="py-2">
                             <p className="text-base">I am avaiable on:</p>
                             <div className="flex justify-between py-2">
