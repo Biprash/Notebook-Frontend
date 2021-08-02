@@ -16,6 +16,7 @@ interface Note {
     description?: string,
     cover?: string
     published: Boolean
+    is_bookmarked: Boolean
 }
 
 function Note(): ReactElement {

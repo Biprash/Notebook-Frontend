@@ -7,6 +7,7 @@ interface Note {
     description?: string,
     cover?: string,
     published: Boolean
+    is_bookmarked: Boolean
 }
 
 interface Props {
