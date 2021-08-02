@@ -22,10 +22,10 @@ function Navbar({search, setSearch}: Props): ReactElement {
         <nav className="bg-white">
             <div className="container flex justify-between py-2 items-center">
                 <div className="">
-                    <Link to="/"><img src={Logo} className="h-10"></img></Link>
+                    <Link to="/"><img src={Logo} className="h-10" alt="logo"></img></Link>
                 </div>
                 <div className="flex items-center">
-                    <Link to="/" className="pr-8 hover:text-blue-600">Explore</Link>
+                    <Link to="/explore" className="pr-8 hover:text-blue-600">Explore</Link>
                     <Link to="/note" className="pr-8 hover:text-blue-600">New Note</Link>
                     <input value={search} onChange={handleChange} className="border mr-4 rounded focus:outline-none px-2 py-1" type="search" name="search" placeholder="Search" id="search" />
                 </div>

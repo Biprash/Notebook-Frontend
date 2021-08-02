@@ -5,7 +5,7 @@
 }
 
 .title{
-    @apply text-center font-bold   capitalize text-2xl m-0 text-gray-700;
+    @apply text-center font-bold  capitalize text-2xl m-0 text-gray-700;
 }
 .subtitle{
     @apply capitalize text-center font-medium text-gray-700;
