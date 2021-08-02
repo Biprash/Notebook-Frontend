@@ -18,7 +18,7 @@
   }
   .email-login label {
     color: rgb(170 166 166);
-    @apply mt-3
+    @apply mt-3;
   }
   
   .login--input {
@@ -42,7 +42,6 @@
 	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 	grid-gap: 15px;
 	align-items: stretch;
-	
     margin-left: 20px;
     max-height: 348px;
 }
