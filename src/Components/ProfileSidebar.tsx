@@ -34,7 +34,7 @@ function ProfileSidebar(): ReactElement {
         //     <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100">Settings</Link>
         // </div>
 
-        <nav className="fixed inset-y-0 left-0 bg-gray-200 shadow-xl p-1 mt-12 w-100">  
+        <nav className="fixed inset-y-0 left-0 bg-gray-200 shadow-xl p-1 mt-14 w-100">  
                	<div className="flex h-40 w-full mt-2">
                     
 					<div className="h-full w-1/3 ">
