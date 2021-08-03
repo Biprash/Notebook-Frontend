@@ -11,8 +11,6 @@ export const login = ({email, password}: Login): AppThunk => async (dispatch) =>
             email: email,
             password: password
         })
-        console.log(response, 'res');
-        
         if (response.data?.two_factor === false) {
             const user = await server.get('/user/user')
             console.log(user, 'user');
@@ -20,8 +18,8 @@ export const login = ({email, password}: Login): AppThunk => async (dispatch) =>
             if (user.data)
                 dispatch(getUser(user.data))
         }
-    } catch ({response}) {
-        dispatch(authFail(response.data?.message))
+    } catch (error) {
+        dispatch(authFail(error?.response.data?.message))
     } 
 }
 
@@ -33,10 +31,8 @@ export const fetchUser = (): AppThunk => async (dispatch) => {
         
         if (user?.data)
             dispatch(getUser(user.data))
-    } catch ({response}) {
-        console.log(response, 'ressss');
-        
-        dispatch(authFail(response.data?.message))
+    } catch (error) {
+        dispatch(authFail(error?.response.data?.message))
     }
 }
 
@@ -50,8 +46,8 @@ export const logout = (): AppThunk => async (dispatch) => {
         if (!response.data) {
             dispatch(authLogout())
         }
-    } catch ({response}) {
-        dispatch(authFail(response.data?.message))
+    } catch (error) {
+        dispatch(authFail(error?.response.data?.message))
     } 
 }
 
@@ -74,7 +70,7 @@ export const register = ({name, email, password, confirmPassword}: Register): Ap
             if (user.data)
                 dispatch(getUser(user.data))
         }
-    } catch ({response}) {        
-        dispatch(authFail(response.data?.message))
+    } catch (error) {        
+        dispatch(authFail(error?.response.data?.message))
     } 
 }
