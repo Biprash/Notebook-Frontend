@@ -79,3 +79,20 @@
       grid-template-columns: none;
     }
   }
+
+
+  /* setting */
+
+  .setting--graduation::marker{
+    content: '\f19d';
+    font-family: 'Font Awesome 5 free';
+    font-weight: 700;
+    color: gray;
+  }
+
+  .setting--envalop::marker{
+    content: '\f0e0';
+    font-family: 'Font Awesome 5 free';
+    font-weight: 700;
+    color: gray;
+  }
