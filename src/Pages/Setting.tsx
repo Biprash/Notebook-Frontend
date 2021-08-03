@@ -13,8 +13,9 @@ function Setting(): ReactElement {
               <h1 className="text-2xl ml-6 my-3">Account</h1>
                <div className="flex">
                    <div className=" text-white">
-                       <div className="w-52 h-28 ml-auto mr-6">
+                       <div className="w-52 h-28 ml-auto mr-6 relative">
                            <img className="rounded-lg w-full shadow-2xl" src={Img1} alt="imgs"/>
+                           <button className="absolute top-0 right-0"><i className="text-white text-lg far fa-edit"></i></button>
                        </div>
                    </div>
                    <div className=" w-1/4 ">
