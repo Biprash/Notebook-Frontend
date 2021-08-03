@@ -41,6 +41,15 @@ function NoteDetail(): ReactElement {
     }
 
     useEffect(() => {
+        if (pages.length == 1)
+        {
+            console.log(pages[0].id);
+            
+            setSelectedPage(pages[0].id)
+        }
+    }, [pages])
+
+    useEffect(() => {
         server.get(`${location.state?.isPublic ? '': '/user'}/pages/${noteId}/list`)
             .then(res => {
                 console.log(res.data.data, 'pages');
