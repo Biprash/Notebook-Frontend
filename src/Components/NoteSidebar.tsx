@@ -27,8 +27,7 @@ function NoteSidebar({pages, setPages, setSelectedPage}: Props): ReactElement {
             <div className="fixed inset-y-0 left-0 flex flex-col bg-gray-200 shadow-xl p-1 mt-14 w-64 h-full">
                 { pages && pages.map((page, index) => {
                     return (
-                        <>
-                        <div className=" flex ">
+                        <div key={index} className="flex">
                             <button key={page.id} 
                             onClick={() => {
                                 setSelectedPage(page.id)
@@ -38,7 +37,6 @@ function NoteSidebar({pages, setPages, setSelectedPage}: Props): ReactElement {
                             <button><i className="mr-2 fas fa-trash-alt"></i></button>
                             <button><i className="fas fa-pencil-alt"></i></button>                            
                         </div>
-                  </>
                     )
                 })}
                 {!location.state?.isPublic ? 

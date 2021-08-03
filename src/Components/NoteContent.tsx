@@ -36,23 +36,31 @@ function NoteContent({selectedPage}: Props): ReactElement {
     const [currentSection, setCurrentSection] = useState<number>(0)
 
     useEffect(() => {     
+        if (selectedPage !== 0) {
         server.get(`${location.state?.isPublic ? '': '/user'}/sections/${selectedPage}/list`)
-            .then(res => {
-                console.log(res.data.data, 'sec');
-                setSections(res.data.data)
-                // not the full proof method
-                setSelectedSection(res.data.data[0]?.id)
-                setCurrentSection(0)
-            })
+                .then(res => {
+                    console.log(res.data.data, 'sec');
+                    setSections(res.data.data)
+                    // not the full proof method
+                    if (res.data.data[0]?.id) {
+                        setSelectedSection(res.data.data[0]?.id)
+                    } else {
+                        setSelectedSection(0)
+                    }
+                    setCurrentSection(0)
+                })
+        }
     }, [selectedPage])
 
     useEffect(() => {
-        if (selectedSection) {
+        if (selectedSection !== 0) {
             server.get(`${location.state?.isPublic ? '': '/user'}/resources/${selectedSection}/list`)
                 .then(res => {
                     console.log(res.data.data, 'res');
                     setResources(res.data.data)
                 })
+        } else {
+            setResources([])
         }
     }, [selectedSection])
 
