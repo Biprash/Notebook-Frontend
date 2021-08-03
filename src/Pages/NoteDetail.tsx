@@ -3,8 +3,6 @@ import NoteSidebar from '../Components/NoteSidebar'
 import NoteContent from '../Components/NoteContent'
 import server from '../server/server'
 import { useLocation, useParams } from 'react-router-dom'
-import { userSelector } from '../redux/user/userSlice'
-import { useAppSelector } from '../redux/hooks'
 
 interface LocationState {
     title: string
@@ -27,7 +25,6 @@ function NoteDetail(): ReactElement {
     const [pages, setPages] = useState<Array<Page>>([])
     const [selectedPage, setSelectedPage] = useState<number>(1)
     const [notePublished, setNotePublished] = useState<Boolean>(location.state?.published)
-    const {user} = useAppSelector(userSelector)
     
     const handleNotePublish = (e: MouseEvent<HTMLButtonElement>) => {
         // reload garda kam gardaina TODO ...
