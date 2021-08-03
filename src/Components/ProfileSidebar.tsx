@@ -37,14 +37,14 @@ function ProfileSidebar({selected}: Props): ReactElement {
 				</div>
                 <ul className="mt-6 mx-3">
                     <li className="my-3">
-                    <Link to="/note" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected == 'All Notes' ? 'bg-white' : null}`}>All Notes</Link>
+                    <Link to="/note" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected === 'All Notes' ? 'bg-white' : null}`}>All Notes</Link>
                     </li>
                     <li className="my-3">
                         <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Forked Notes</Link>
                     </li>
                     <li className="my-3">
-                        <Link to="/bookmarks" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected == 'Bookmarks' ? 'bg-white' : null}`}>Bookmarks</Link>
-                    </li>
+                        <Link to="/bookmarks" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected === 'Bookmarks' ? 'bg-white' : null}`}>Bookmarks</Link>
+                    </li>NoteDetail
                     <li className="my-3">
                       <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Groupings</Link>
                     </li>

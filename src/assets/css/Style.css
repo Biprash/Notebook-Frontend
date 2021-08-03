@@ -38,10 +38,11 @@
 
   /* cardlist */
 .item--cards{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-	grid-gap: 15px;
-	align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 15px;
+    align-items: stretch;
+	  height: 300px;
     margin-left: 20px;
     max-height: 348px;
 }
@@ -59,4 +60,22 @@
     background: white;
 }
 
-/* sidebar */
+/*  */
+
+.note-content-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    width: 100%;
+}
+
+@media (max-width: 1080px) { /*breakpoint*/
+    .note-content-card {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 768px) { /*breakpoint*/
+    .note-content-card {
+      grid-template-columns: none;
+    }
+  }
