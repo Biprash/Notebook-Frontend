@@ -38,11 +38,11 @@
 
   /* cardlist */
 .item--cards{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-	grid-gap: 15px;
-	align-items: stretch;
-	height: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 15px;
+    align-items: stretch;
+	  height: 300px;
     margin-left: 20px;
     max-height: 348px;
 }
