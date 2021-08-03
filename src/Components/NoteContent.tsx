@@ -1,5 +1,5 @@
 import { ReactElement, MouseEvent, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation ,Link} from 'react-router-dom'
 import server from '../server/server'
 import ResourceForm from './Forms/ResourceForm'
 import SectionForm from './Forms/SectionForm'
@@ -131,6 +131,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     <div className="note-content-card">
                         {resources.map((resource, index) => {
                             return (
+                                <a href={"//".concat(resource.link)}>
                                 <div key={resource.id} className="contentnote--cards">
                                     <div className="flex flex-col items-center">
                                         <h2 className=" px-1 h-12  capitalize font-semibold text-xl  my-4">{resource.title}</h2>
@@ -146,6 +147,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
                                     </div>
                                     
                                 </div>
+                                </a>
                             )
                         })}
                     </div>
