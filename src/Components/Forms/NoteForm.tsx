@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FormEvent, MouseEvent, ReactElement, SetStateAction, useEffect, useState } from 'react'
+import { ChangeEvent, Dispatch, FormEvent, ReactElement, SetStateAction, useEffect, useState } from 'react'
 import server from '../../server/server'
 
 interface Note {

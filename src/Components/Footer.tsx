@@ -1,8 +1,8 @@
-import React from 'react'
+import { ReactElement } from 'react'
 import {Link }  from 'react-router-dom';
 
 
-function Footer() {
+function Footer(): ReactElement {
     return (
         <div>
            <footer className="bg-gray-200 pt-14">

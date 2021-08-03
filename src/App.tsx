@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
+import Spinner from './Components/Spinner';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { fetchUser } from './redux/user/creators';
 import { userSelector } from './redux/user/userSlice';
 import Routes from './routes/Routes';
 
 function App() {
-  const {user, fetched} = useAppSelector(userSelector)
+  const {user, fetched, loading} = useAppSelector(userSelector)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -16,7 +17,11 @@ function App() {
   
   return (
     <div>
-      <Routes />
+      {loading ? 
+        <Spinner />
+      :
+        <Routes />
+      }
     </div>
   );
 }
