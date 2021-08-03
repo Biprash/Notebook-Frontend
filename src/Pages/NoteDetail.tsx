@@ -23,7 +23,7 @@ function NoteDetail(): ReactElement {
     let location = useLocation<LocationState>()
     const { noteId } = useParams<RouteParams>()
     const [pages, setPages] = useState<Array<Page>>([])
-    const [selectedPage, setSelectedPage] = useState<number>(1)
+    const [selectedPage, setSelectedPage] = useState<number>(0)
     const [notePublished, setNotePublished] = useState<Boolean>(location.state?.published)
     
     const handleNotePublish = (e: MouseEvent<HTMLButtonElement>) => {
