@@ -44,7 +44,7 @@ function ProfileSidebar({selected}: Props): ReactElement {
                     </li>
                     <li className="my-3">
                         <Link to="/bookmarks" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected === 'Bookmarks' ? 'bg-white' : null}`}>Bookmarks</Link>
-                    </li>NoteDetail
+                    </li>
                     <li className="my-3">
                       <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Groupings</Link>
                     </li>
