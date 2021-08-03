@@ -10,7 +10,7 @@ import Register from '../Pages/Register'
 import Navbar from '../Components/Navbar'
 import Search from '../Pages/Search'
 import Bookmark from '../Pages/Bookmark'
-import Homepage from '../Pages/Homepage';
+import Homepage from '../Pages/Homepage'
 import Setting from '../Pages/Setting'
 
 function Routes(): ReactElement {

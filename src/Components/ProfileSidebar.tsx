@@ -49,7 +49,7 @@ function ProfileSidebar({selected}: Props): ReactElement {
                       <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Groupings</Link>
                     </li>
                     <li className="my-3">
-                    <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Settings</Link>
+                    <Link to="/setting" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Settings</Link>
                     </li>
                 </ul>
 
