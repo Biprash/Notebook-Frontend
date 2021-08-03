@@ -131,17 +131,20 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     <div className="note-content-card">
                         {resources.map((resource, index) => {
                             return (
-                                <div key={resource.id} className="note--cards">
+                                <div key={resource.id} className="contentnote--cards">
                                     <div className="flex flex-col items-center">
-                                        <h2 className=" uppercase font-semibold text-3xl border-b-2 my-4">{resource.title}</h2>
-                                        <p className="p-6  overflow-auto h-72 capitalize ">{resource.description}</p>
+                                        <h2 className=" px-1 h-10 capitalize font-semibold text-xl border-b-2 my-4">{resource.title}</h2>
+                                        <div className="content h-46 w-full bg-white">
+                                        <p className="p-4  overflow-y-scroll h-40 capitalize ">{resource.description}</p>
+                                        </div>
+                                       
                                     </div>
-                                    <hr />
-
-                                    <div className="flex my-5 justify-around">
+                                
+                                    <div className="flex my-2  justify-around ">
                                         <button onClick={e => handleResourceUpdate(e, resource)}><i className="fas fa-pencil-alt"></i></button>
                                         <button onClick={e => handleResourceDelete(e, resource)}><i className="fas fa-trash-alt"></i></button>
                                     </div>
+                                    
                                 </div>
                             )
                         })}
