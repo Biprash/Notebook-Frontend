@@ -105,7 +105,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
             {showResourceForm ? <ResourceForm sectionId={selectedSection} resources={resources} setResources={setResources} setShowResourceForm={setShowResourceForm} updatingResource={updatingResource} /> : null}
 
             <div className="p-2 flex flex-col flex-1">
-                <div className="flex flex-row flex-wrap border-b-2 border-dashed pb-2">
+                <div className="flex flex-row flex-wrap border-b-2 border-dashed border-gray-300 pb-2">
                     {sections.map((section, index) => {
                         return <button key={section.id} 
                         onClick={() => {
