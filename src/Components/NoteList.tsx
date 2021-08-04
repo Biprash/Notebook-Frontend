@@ -61,16 +61,16 @@ function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: 
 
     return (
         <>
-             <article className="note--cards">
+             <article className="note--cards hover:opacity-70">
                 <div className="max-w-full">
                 <Link to={{ 
                         pathname:`/note/${note.id}`,
                         state: { title: note.title, published:note.published }
                     }}>
-                        <h3 className="text-center text-lg capitalize text-gray-800 font-bold my-2">{note.title}</h3>
-                        <img src={note.cover} alt="" className="w-full h-40 object-cover" />
-                        
-                    <p className=" text-sm text-gray-500 capitalize  my-6 h-14 overflow-auto text-center " > {note.description} </p>
+                        <h3 className="text-center h-16 text-lg capitalize text-gray-800 font-bold my-2 ">{note.title}</h3>
+                        <img src={note.cover} alt="" className="w-full h-40 object-cover " />
+                      
+                    <p className=" text-sm text-gray-600 italic capitalize  my-6 h-16 overflow-auto text-center " > {note.description} </p>
                     
                 </Link>
                 </div>
@@ -79,7 +79,8 @@ function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: 
                     <div className="flex justify-around">
                         <button onClick={e => handleNoteDelete(e, note)} className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-trash-alt"></i></button>
                         <button onClick={e => handleNoteUpdate(e, note)} className="w-1/2 py-2 hover:bg-gray-200"><i className="fas fa-pencil-alt"></i></button>
-                        <button onClick={e => handleNoteBookmark(e, note)} className="w-1/2 py-2 hover:bg-gray-200">{ note.is_bookmarked ? <i className="fas fa-star"></i> : <i className="far fa-star"></i> }
+                        <button onClick={e => handleNoteBookmark(e, note)} className="w-1/2 py-2 hover:bg-gray-200">{ note.is_bookmarked ? <i className="fas fa-bookmark"></i> : <i className="far fa-bookmark"></i> }
+                       
                         </button>
                     </div>
                 </div>

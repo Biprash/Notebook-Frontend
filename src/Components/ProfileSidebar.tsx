@@ -37,19 +37,19 @@ function ProfileSidebar({selected}: Props): ReactElement {
 				</div>
                 <ul className="mt-6 mx-3">
                     <li className="my-3">
-                    <Link to="/note" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected === 'All Notes' ? 'bg-white' : null}`}>All Notes</Link>
+                    <Link to="/note" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full  ${ selected === 'All Notes' ? 'bg-white border-b-2 border-solid border-gray-300' : null}`}>All Notes</Link>
                     </li>
                     <li className="my-3">
-                        <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Forked Notes</Link>
+                        <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full">Forked Notes</Link>
                     </li>
                     <li className="my-3">
-                        <Link to="/bookmarks" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected === 'Bookmarks' ? 'bg-white' : null}`}>Bookmarks</Link>
+                        <Link to="/bookmarks" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full ${ selected === 'Bookmarks' ? 'bg-white border-b-2 border-solid border-gray-300' : null}`}>Bookmarks</Link>
                     </li>
                     <li className="my-3">
-                      <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Groupings</Link>
+                      <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full">Groupings</Link>
                     </li>
                     <li className="my-3">
-                    <Link to="/setting" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block">Settings</Link>
+                    <Link to="/login" className="text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full">Settings</Link>
                     </li>
                 </ul>
 
