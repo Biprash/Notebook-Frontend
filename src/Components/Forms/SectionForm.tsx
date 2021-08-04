@@ -49,7 +49,6 @@ function SectionForm({pageId, sections, setSections, setShowSectionForm}: Props)
                     <label className="py-2" htmlFor="title">Title</label>
                     <p className="text-red-500">{error?error:null}</p>
                     <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none" type="text" name="title" required autoFocus />
-                    
                     <input className="mx-auto rounded w-4/12 py-2 my-3 bg-blue-500 text-white hover:bg-blue-600" type="submit" value="Create" />
                 </form>
             </div>
