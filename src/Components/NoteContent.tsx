@@ -131,8 +131,8 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     <div className="note-content-card">
                         {resources.map((resource, index) => {
                             return (
-                                <a href={"//".concat(resource.link)}>
-                                <div key={resource.id} className="contentnote--cards">
+                                // <a href={"//".concat(resource.link)}>
+                                <Link to={{pathname: resource.link}} target={"_blank"} key={resource.id} className="contentnote--cards">
                                     <div className="flex flex-col items-center">
                                         <h2 className=" px-1 h-12  capitalize font-semibold text-xl  my-4">{resource.title}</h2>
                                         <div className="content h-46 w-full bg-white">
@@ -140,14 +140,14 @@ function NoteContent({selectedPage}: Props): ReactElement {
                                         </div>
                                        
                                     </div>
-                                
+                                    {!location.state?.isPublic ? 
                                     <div className="flex my-2  justify-around ">
                                         <button onClick={e => handleResourceUpdate(e, resource)}><i className="fas fa-pencil-alt"></i></button>
                                         <button onClick={e => handleResourceDelete(e, resource)}><i className="fas fa-trash-alt"></i></button>
                                     </div>
-                                    
-                                </div>
-                                </a>
+                                    : null }
+                                </Link>
+                                // </a>
                             )
                         })}
                     </div>
