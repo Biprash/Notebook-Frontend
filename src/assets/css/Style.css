@@ -67,12 +67,12 @@ box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
 }
 .contentnote--cards:hover{
   border: 1px solid  #aab1ff;
-  background:#daddf8;
+  background:#e0e4f0;
   cursor: pointer;
 }
 .explore{
     border: 1px solid  white;
-	border-radius: 5px;
+  	border-radius: 5px;
 	box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
     background: white;
 }
@@ -95,4 +95,30 @@ box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
     .note-content-card {
       grid-template-columns: none;
     }
+  }
+
+
+  /* animations */
+
+  .underline-effect {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .underline-effect:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(168, 166, 166);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .underline-effect:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }

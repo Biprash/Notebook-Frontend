@@ -65,7 +65,7 @@ function NoteSidebar({pages, setPages, setSelectedPage}: Props): ReactElement {
                                 setSelectedPage(page.id)
                                 setCurrentPage(index)
                             }} 
-                            className={`text-left text-gray-700 py-1 px-4 my-1 mx-2 ${!location.state?.isPublic ? 'w-9/12': 'w-full'} capitalize rounded hover:bg-gray-100 ${index === currentPage && 'bg-white'}`}>{page.title}</button>
+                            className={`text-left text-gray-700 py-1 px-4 my-1 mx-2 ${!location.state?.isPublic ? 'w-9/12': 'w-full'} capitalize rounded-md border-solid border-2 border-gray-300 shadow-2xl hover:bg-gray-100 ${index === currentPage && 'bg-white'}`}>{page.title}</button>
                             {!location.state?.isPublic ? 
                             <>
                                 <button onClick={(e) => handlePageUpdate(e, page)}><i className="mr-2 fas fa-pencil-alt"></i></button>                            

@@ -19,7 +19,7 @@ function Navbar({search, setSearch}: Props): ReactElement {
         setSearch(e.target.value)
     }
     return (
-        <nav className="bg-white fixed w-full top-0">
+        <nav className="bg-white fixed w-full top-0 z-10">
             <div className="container flex justify-between py-2 items-center">
                 <div className="">
                     <Link to="/"><img src={Logo} className="h-10" alt="logo"></img></Link>
