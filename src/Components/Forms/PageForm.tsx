@@ -19,6 +19,8 @@ interface RouteParams {
 function PageForm({pages, setPages, setShowPageForm}: Props): ReactElement {
     const { noteId } = useParams<RouteParams>()
     const [title, setTitle] = useState('')
+    
+    const [error, setError] = useState<string>('')
 
     const handlePageFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
