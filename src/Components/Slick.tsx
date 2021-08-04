@@ -32,15 +32,18 @@ function Slick({data}: Props): ReactElement {
                         <Link to={{ 
                                     pathname:`/note/${item.id}`,
                                     state: { title: item.title, published: item.published, isPublic: true }
-                                    }} key={item.id} className= "block bg-white rounded-lg  py-8 shadow-lg">             
-                                <div className="">
-                                    <h2 className="text-center font-bold  pb-2 px-1 text-xl capitalize">{item.title}</h2>
+                                    }} key={item.id} className= "block bg-white rounded-lg  py-2 shadow-lg ">             
+                                <div className="exploreCard">
+                                    <h2 className="text-center font-bold  pb-2 px-2 text-l h-18 capitalize">{item.title}</h2>
                                     <div>
-                                    <img  src={item.cover} alt="" className="w-full" />
+                                    <img  src={item.cover} alt="" className="w-full h-40 object-cover" />
                                     </div> 
-                                    <div className=""> <p className="truncate text-left pl-6 text-gray-600 overflow-auto "><br/>{item.description}</p></div> 
+                                    <div className="h-24"> <p className="truncate text-left pl-2 text-gray-600 overflow-auto "><br/>{item.description}</p>
+                                   
+                                    </div> 
                                 </div>
                             </Link> 
+                            
                        )
                       })}
                 </div>
