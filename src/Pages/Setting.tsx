@@ -9,11 +9,11 @@ function Setting(): ReactElement {
     <>
     <ProfileSidebar/>
         <div className="mt-16 flex flex-col justify-center items-center ">
-           <div className=" border-solid border-r-4 border-gray-500 rounded pr-8 ">
+           <div className=" p-8 border-2 border-dashed border-gray-400 rounded pr-8 ">
               <h1 className="text-2xl ml-6 my-3">Account</h1>
                <div className="flex">
                    <div className=" text-white">
-                       <div className="w-52 h-28 ml-auto mr-6 relative">
+                       <div className="w-52 h-28 ml-auto mr-10 relative">
                            <img className="rounded-lg w-full shadow-2xl" src={Img1} alt="imgs"/>
                            <button className="absolute top-0 right-0"><i className="text-white text-lg far fa-edit"></i></button>
                        </div>
