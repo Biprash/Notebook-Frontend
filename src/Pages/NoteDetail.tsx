@@ -61,7 +61,7 @@ function NoteDetail(): ReactElement {
     
     return (
         <div className="flex flex-col ml-64 mt-16">
-            <div className="container flex flex-column">
+            <div className="container flex border-b-2 border-dashed">
                 <h1 className="font-bold text-3xl text-gray-800 mx-auto py-2">{location.state?.title}</h1>
                 {!location.state?.isPublic ? 
                 <button onClick={handleNotePublish} className={`text-white px-8 my-2 rounded ${notePublished?'bg-red-500 hover:bg-red-500':'bg-blue-500 hover:bg-blue-600'}`}>{notePublished? 'Unpublish Note' : 'Publish Note'}</button>
