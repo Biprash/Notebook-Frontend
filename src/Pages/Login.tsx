@@ -12,7 +12,7 @@ function Login(): ReactElement {
     const userDispatch = useAppDispatch()
     const {user} = useAppSelector(userSelector)
     console.log(user,'use');
-    const {error} = useAppSelector(userSelector)
+    // const {error} = useAppSelector(userSelector)
     // const validate = (value, user) =>{
     //     if(!value.toString().trim().length > user.maxLength){
     //         return <span className="error">here the error</span>
@@ -46,7 +46,7 @@ function Login(): ReactElement {
                 <div className="email-login">
                      <label htmlFor="email"> <b>Email</b></label>
                      <input className="login--input" value={email} onChange={handleEmailChange}  type="text" placeholder="Enter Email" name="email" id="email" required/>
-                    <p className="err-msg">{error && <p className="error">{error}</p>} </p>
+                    {/* <p className="err-msg">{error && <p className="error">{error}</p>} </p> */}
                      <label htmlFor="psw"><b>Password</b></label>
                     <input className="login--input" value={password} onChange={handlePasswordChange}  type="password" placeholder="Enter Password" name="password" id="password" required/>
                  </div>
