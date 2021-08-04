@@ -52,7 +52,7 @@ function Search({search, setSearch}: Props): ReactElement {
                             <img src={note.cover} alt="" className="rounded-t bg-cover bg-center bg-no-repeat" />
                             <div className="flex flex-col px-4 py-1 shadow-2xl border-solid border-2 border-gray-200 rounded-xl hover:opacity-60 delay-50">
                                 <h2 className="font-semibold text-lg text-center uppercase py-0 pt-1 text-gray-800">{note.title}</h2>
-                                <p className="py-2 truncate overflow-hidden capitalize text-gray-800">{note.description}</p>
+                                <p className="py-2 truncate overflow-hidden text-sm capitalize text-gray-800 italic">{note.description}</p>
                             </div>
                         </Link>
                     )
