@@ -9,13 +9,14 @@ function Setting(): ReactElement {
     <>
     <ProfileSidebar/>
         <div className="mt-16 flex flex-col justify-center items-center ">
-           <div className=" p-8 border-2 border-dashed border-gray-400 rounded pr-8 ">
+           <div className=" p-10 border-2 border-dashed border-gray-300 rounded pr-8 ">
               <h1 className="text-2xl ml-6 my-3">Account</h1>
+              <form>
                <div className="flex">
                    <div className=" text-white">
                        <div className="w-52 h-28 ml-auto mr-10 relative">
                            <img className="rounded-lg w-full shadow-2xl" src={Img1} alt="imgs"/>
-                           <button className="absolute top-0 right-0"><i className="text-white text-lg far fa-edit"></i></button>
+                           <button className="absolute top-0 right-0 "><i className="text-gray-300 text-lg far fa-edit"></i></button>
                        </div>
                    </div>
                    <div className=" w-1/4 ">
@@ -61,8 +62,9 @@ function Setting(): ReactElement {
                            <input className="my-1 rounded border-solid border-2 border-gray-700 pl-2" type="text" placeholder="Tiktok profile" />
                        </li>
                    </ul>
-
                </div>
+               <button className="py-3 px-5 bg-blue-500 text-blue-100 hover:bg-blue-700 mt-3 rounded-md ">Save</button>
+               </form>
            </div>
      </div>
      </>
