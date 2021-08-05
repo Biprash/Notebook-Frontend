@@ -105,7 +105,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
             {showResourceForm ? <ResourceForm sectionId={selectedSection} resources={resources} setResources={setResources} setShowResourceForm={setShowResourceForm} updatingResource={updatingResource} /> : null}
 
             <div className="p-2 flex flex-col flex-1">
-                <div className="flex flex-row flex-wrap">
+                <div className="flex flex-row flex-wrap border-b-2 border-dashed border-gray-300 pb-2">
                     {sections.map((section, index) => {
                         return <button key={section.id} 
                         onClick={() => {
@@ -133,16 +133,15 @@ function NoteContent({selectedPage}: Props): ReactElement {
                             return (
                                 <div key={resource.id} className="contentnote--cards">
                                     <Link to={{pathname: resource.link}} target={"_blank"} className="flex flex-col items-center">
-                                        <h2 className=" px-1 h-12  capitalize font-semibold text-xl  my-4">{resource.title}</h2>
+                                        <h2 className=" px-1 h-12  capitalize font-semibold text-xl my-4 ">{resource.title}</h2>
                                         <div className="content h-46 w-full bg-white">
-                                        <p className="p-4  overflow-y-scroll h-44 capitalize ">{resource.description}</p>
-                                        </div>
-                                       
+                                        <p className="p-4  overflow-y-scroll h-44 capitalize italic text-sm">{resource.description}</p>
+                                        </div>  
                                     </Link>
                                     {!location.state?.isPublic ? 
-                                    <div className="flex my-2  justify-around ">
-                                        <button onClick={e => handleResourceUpdate(e, resource)}><i className="fas fa-pencil-alt"></i></button>
-                                        <button onClick={e => handleResourceDelete(e, resource)}><i className="fas fa-trash-alt"></i></button>
+                                    <div className="flex mt-1  justify-around ">
+                                        <button className="w-1/2 h-9 hover:bg-white" onClick={e => handleResourceUpdate(e, resource)}><i className="fas fa-pencil-alt"></i></button>
+                                        <button className="w-1/2 hover:bg-white" onClick={e => handleResourceDelete(e, resource)}><i className="fas fa-trash-alt"></i></button>
                                     </div>
                                     : null }
                                 </div>
