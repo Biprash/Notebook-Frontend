@@ -39,7 +39,7 @@ function Setting(): ReactElement {
                </div>
 
 
-               <div className=" mt-6" >
+               <div className=" mt-14" >
                    <h1 className="text-xl mb-4">social links</h1>
                    <ul>
                        <li>

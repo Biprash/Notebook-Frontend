@@ -162,5 +162,6 @@ box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-    background-color: rgb(63, 63, 182);
+  content: "uploaded";
+    background-color: rgb(45, 62, 95);
 }
