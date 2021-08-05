@@ -93,10 +93,10 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
                 <h2 className="text-2xl font-semibold pb-2">{updatingNote ? 'Update' : 'Create New'} Note</h2>
                 <form onSubmit={handleNoteFormSubmit} className="flex flex-col" >
                     <label className="py-2" htmlFor="title">Title</label>
-                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none" type="text" name="title" required autoFocus />
+                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none rounded-md border-solid border-2" type="text" name="title" required autoFocus />
                     
                     <label className="py-2" htmlFor="description">Description</label>
-                    <input value={description} onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} className="py-1 px-2 outline-none" type="text" name="description" />
+                    <input value={description} onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} className="py-1 px-2 outline-none rounded-md border-solid border-2" type="text" name="description" />
                     
                     <label className="py-2" htmlFor="cover">Cover</label>
                     <input onChange={handleFileChange} className="py-1 px-2" type="file" name="cover" />
