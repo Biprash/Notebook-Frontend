@@ -61,7 +61,7 @@ function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: 
 
     return (
         <>
-             <article className="note--cards hover:opacity-70">
+             <article className="note--cards hover:shadow-2xl  hover:border-gray-400 border-4">
                 <div className="max-w-full">
                 <Link to={{ 
                         pathname:`/note/${note.id}`,

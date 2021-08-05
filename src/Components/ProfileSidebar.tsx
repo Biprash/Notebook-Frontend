@@ -21,16 +21,16 @@ function ProfileSidebar({selected}: Props): ReactElement {
 					
                     </div>
 					<div className=" h-full mx-3">
-                        <h3 className="font-bold capitalize">{user?.name}</h3>
-                       <div className="flex flex-row content-center "> <img src={hat} alt="hat"/><p className="pl-1 py-1 text-base truncate">Kist College</p></div>
-                       <div className="flex flex-row content-center"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">{user?.email}</p></div>
+                        <h3 className="font-bold capitalize text-gray-700">{user?.name}</h3>
+                       <div className="flex flex-row content-center text-gray-700"> <img src={hat} alt="hat"/><p className="pl-1 py-1 text-base truncate">Kist College</p></div>
+                       <div className="flex flex-row content-center text-gray-700"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">{user?.email}</p></div>
                         <div className="py-2">
-                            <p className="text-base">I am avaiable on:</p>
+                            <p className="text-base text-gray-700">I am avaiable on:</p>
                             <div className="flex justify-between py-2">
-                                <Link to="#"><i className="fab fa-facebook-f"></i></Link>
-                                <Link to="#"><i className="fab fa-twitter"></i></Link>
-                                <Link to="#"><i className="fab fa-linkedin"></i></Link>
-                                <Link to="#"><i className="fab fa-instagram"></i></Link>
+                                <Link to="#"><i className=" text-gray-700 fab fa-facebook-f"></i></Link>
+                                <Link to="#"><i className="text-gray-700 fab fa-twitter"></i></Link>
+                                <Link to="#"><i className="text-gray-700 fab fa-linkedin"></i></Link>
+                                <Link to="#"><i className="text-gray-700 fab fa-instagram"></i></Link>
                             </div>
                         </div>
 					</div>
