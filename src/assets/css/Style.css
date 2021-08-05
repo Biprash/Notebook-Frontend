@@ -150,7 +150,7 @@ box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
 
   .inputfile + label {
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 400;
     color: white;
     background-color: rgb(59, 130, 254);
     display: inline-block;
