@@ -11,6 +11,7 @@ import Navbar from '../Components/Navbar'
 import Search from '../Pages/Search'
 import Bookmark from '../Pages/Bookmark'
 import Homepage from '../Pages/Homepage';
+import RecentlyViewed from '../Pages/RecentlyViewed'
 
 function Routes(): ReactElement {
     const [search, setSearch] = useState<string>('')
@@ -24,13 +25,15 @@ function Routes(): ReactElement {
                 </Route>
                 <Route  path="/explore">
                     <Explore />
-
                 </Route>
                 <Route path="/login">
                     <Login />
                 </Route>
                 <Route path="/register">
                     <Register />
+                </Route>
+                <Route path="/recently viewed">
+                    <RecentlyViewed />
                 </Route>
                 <Route path="/bookmarks">
                     <Bookmark />
