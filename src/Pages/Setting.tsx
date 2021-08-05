@@ -18,7 +18,7 @@ function Setting(): ReactElement {
                            <img className="rounded-lg w-full shadow-2xl" src={Img1} alt="imgs"/>
                            <button className="absolute top-0 right-0 "></button>
                            <input type="file" name="file" id="file" accept="image/png, image/gif, image/jpeg, image/jpg" className="inputfile" />
-                            <label htmlFor="file"><i className="text-gray-300 text-lg far fa-edit"></i>Choose a file</label>
+                            <label htmlFor="file"><i className="text-gray-300 text-lg far fa-edit"></i>Choose a photo</label>
                        </div>
                    </div>
                    <div className=" w-1/4 ">
