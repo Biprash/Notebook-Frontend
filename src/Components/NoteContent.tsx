@@ -131,7 +131,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
                     <div className="note-content-card">
                         {resources.map((resource, index) => {
                             return (
-                                <div key={resource.id} className="contentnote--cards paper-effect bg-blue-500 shadow-2xl">
+                                <div key={resource.id} className="contentnote--cards bg-blue-500 shadow-2xl">
                                     <Link to={{pathname: resource.link}} target={"_blank"} className="flex flex-col items-center">
                                         <h2 className=" px-1 h-12  capitalize font-semibold text-xl my-4 text-blue-50 border-b-2 ">{resource.title}</h2>
                                         <div className="h-46 w-ful ">
