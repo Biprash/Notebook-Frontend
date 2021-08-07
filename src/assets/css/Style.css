@@ -1,45 +1,41 @@
-.logincard{
-    width: 400px;
-    
-    @apply mx-auto my-20 rounded-xl bg-white p-7 shadow-2xl;
-    /* box-shadow: 3px 7px 22px rgba(10, 0, 0, 0.1); */
+.logincard {
+  width: 400px;
+
+  @apply mx-auto my-20 rounded-xl bg-white p-7 shadow-2xl;
+  /* box-shadow: 3px 7px 22px rgba(10, 0, 0, 0.1); */
 }
 
-.title{
-    @apply text-center font-bold  capitalize text-2xl m-0 text-gray-700;
+.title {
+  @apply text-center font-bold  capitalize text-2xl m-0 text-gray-700;
 }
-.subtitle{
-    @apply capitalize text-center font-medium text-gray-700;
+.subtitle {
+  @apply capitalize text-center font-medium text-gray-700;
 }
 
-  .email-login {
-      @apply flex flex-col;
-  
-  }
-  .email-login label {
-    color: rgb(170 166 166);
-    @apply mt-3;
-  }
-  
-  .login--input {
-      @apply py-4 px-5 mt-2 border border-solid rounded-lg box-border mb-4 border-white;
-  }
+.email-login {
+  @apply flex flex-col;
+}
+.email-login label {
+  color: rgb(170 166 166);
+  @apply mt-3;
+}
 
-  .cta-btn {
-    background-color: rgb(69, 69, 185);
-    @apply text-white py-4 px-5 mt-3 mb-5 w-full rounded-xl border-0;
-  }
-  
-  .forget-pass {
-      @apply text-center block my-4;
+.login--input {
+  @apply py-4 px-5 mt-2 border border-solid rounded-lg box-border mb-4 border-white;
+}
 
-  }
+.cta-btn {
+  background-color: rgb(69, 69, 185);
+  @apply text-white py-4 px-5 mt-3 mb-5 w-full rounded-xl border-0;
+}
 
+.forget-pass {
+  @apply text-center block my-4;
+}
 
-  /* cardlist */
+/* cardlist */
 
-
-.item--cards{
+.item--cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 15px;
@@ -49,119 +45,70 @@
   max-height: 348px;
 }
 
-.note--cards{
-  border: 1px solid  white;
-border-radius: 5px;
-box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
+.note--cards {
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
   background: white;
 }
 
-.contentnote--cards{
-    border: 1px solid  white;
-	border-radius: 5px;
-	box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
-    
-    height: 300px;
-    width:280px;
-    transition:all 0.3s ease;
+.note-content-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 15px;
+  width: 100%;
 }
-.contentnote--cards:hover{
-  border: 1px solid  #aab1ff;
-  background:#e0e4f0;
+
+.contentnote--cards {
+  @apply border-gray-200 bg-white;
+  box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
+  border-radius: 8px;
+  height: 300px;
+  transition: all 0.1s ease-in;
+  width: 100%;
+  max-width: 280px;
+}
+.contentnote--cards:hover {
+  @apply bg-gray-200;
   cursor: pointer;
-}
-.explore{
-    border: 1px solid  white;
-  	border-radius: 5px;
-	box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
-    background: white;
+  box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
 }
 
-/*  */
-
-.note-content-card{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    grid-gap: 15px;
-    width: 100%;
+.explore {
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
+  background: white;
 }
 
-@media (max-width: 1080px) { /*breakpoint*/
-    .note-content-card {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media (max-width: 768px) { /*breakpoint*/
-    .note-content-card {
-      grid-template-columns: none;
-    }
-  }
+/* animations */
 
-
-  /* setting */
-
-  .setting--graduation::marker{
-    content: '\f19d';
-    font-family: 'Font Awesome 5 free';
-    font-weight: 700;
-    color: gray;
-  }
-
-  .setting--envalop::marker{
-    content: '\f0e0';
-    font-family: 'Font Awesome 5 free';
-    font-weight: 700;
-    color: gray;
+.setting--envalop::marker {
+  content: "\f0e0";
+  font-family: "Font Awesome 5 free";
+  font-weight: 700;
+  color: gray;
   /* animations */
-  }
-  .underline-effect {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .underline-effect:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(168, 166, 166);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .underline-effect:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  /* input file */
-
-  .inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-  }
-
-  .inputfile + label {
-    font-size: 1em;
-    font-weight: 400;
-    color: white;
-    background-color: rgb(59, 130, 254);
-    display: inline-block;
-    margin-top: 10px;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 10px;
+}
+.underline-effect {
+  display: inline-block;
+  position: relative;
 }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
-  content: "uploaded";
-    background-color: rgb(45, 62, 95);
+.underline-effect:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(168, 166, 166);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-effect:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
