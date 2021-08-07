@@ -31,7 +31,7 @@ function Explore(): ReactElement {
         <div className="container ">
             {/* <div className="item--cards"> */}
             <div className="flex justify-center">
-                <h1 className="font-sans font-semibold text-8xl mt-28 text-black-600" > Explore More Notes </h1> 
+                <h1 className="font-sans font-semibold text-7xl text-gray-700 mt-28 text-black-600" > Explore More Notes </h1> 
             </div>
                 {    
                   explores && explores.map((explore, index) => {    
