@@ -80,6 +80,14 @@
   box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
   background: white;
 }
+/*  */
+
+.note-content-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  width: 100%;
+}
 
 /* animations */
 
@@ -111,4 +119,64 @@
 .underline-effect:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+.setting--envalop::marker {
+  content: "\f0e0";
+  font-family: "Font Awesome 5 free";
+  font-weight: 700;
+  color: gray;
+  /* animations */
+}
+.underline-effect {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-effect:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(168, 166, 166);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-effect:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* input file */
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 1em;
+  font-weight: 400;
+  color: white;
+  background-color: rgb(59, 130, 254);
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  content: "uploaded";
+  background-color: rgb(45, 62, 95);
+}
+.inputfile + label {
+  cursor: pointer;
 }
