@@ -12,6 +12,7 @@ import Search from '../Pages/Search'
 import Bookmark from '../Pages/Bookmark'
 import Homepage from '../Pages/Homepage';
 import RecentlyViewed from '../Pages/RecentlyViewed'
+import AllPages from '../Pages/AllPages'
 
 function Routes(): ReactElement {
     const [search, setSearch] = useState<string>('')
@@ -34,6 +35,9 @@ function Routes(): ReactElement {
                 </Route>
                 <Route path="/recently viewed">
                     <RecentlyViewed />
+                </Route>
+                <Route path="/all-notes">
+                    <AllPages />
                 </Route>
                 <Route path="/bookmarks">
                     <Bookmark />
