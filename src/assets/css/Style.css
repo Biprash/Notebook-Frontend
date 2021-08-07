@@ -55,8 +55,9 @@
 
 .note-content-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 15px;
+  align-items: stretch;
   width: 100%;
 }
 
@@ -81,15 +82,6 @@
   box-shadow: 0px 3px 10px rgba(66, 71, 117, 0.68);
   background: white;
 }
-/*  */
-
-.note-content-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
-  width: 100%;
-}
-
 /* animations */
 
 .setting--envalop::marker {
