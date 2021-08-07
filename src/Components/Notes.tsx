@@ -18,7 +18,7 @@ interface Props {
 function Notes({note}: Props): ReactElement {
     return (
         <>
-            <article className="note--cards hover:opacity-70">
+            <article className="note--cards">
                 <div className="max-w-full">
                 <Link to={{ 
                         pathname:`/note/${note.id}`,
