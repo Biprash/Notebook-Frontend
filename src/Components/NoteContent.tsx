@@ -62,7 +62,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
     }
     
     useEffect(() => {
-        if (sections.length == 1)
+        if (sections.length === 1)
         {
             console.log(sections[0].id);
             

@@ -22,7 +22,7 @@ function Notes({note}: Props): ReactElement {
                 <div className="max-w-full">
                 <Link to={{ 
                         pathname:`/note/${note.id}`,
-                        state: { title: note.title, published:note.published }
+                        state: { title: note.title, published:note.published, isPublic: note.published }
                     }}>
                         <h3 className="text-center h-16 text-lg capitalize text-gray-800 font-bold my-2 ">{note.title}</h3>
                         <img src={note.cover} alt="" className="w-full h-40 object-cover " />  

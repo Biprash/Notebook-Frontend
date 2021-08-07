@@ -21,6 +21,7 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
     const [title, setTitle] = useState<string>('')
     const [description, setDescription] = useState<string>('')
     const [cover, setCover] = useState<File>()
+    const [error, setError] = useState<string>('')
     useEffect(() => {        
         if (updatingNote) {
             setTitle(updatingNote.title)
@@ -50,6 +51,7 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
         }
         setCover(e.target.files[0])
         console.log(e.target.files[0]);
+       
         
     }
 
@@ -74,6 +76,11 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
                         setShowNewNoteForm(false)
                     }
                 })
+                .catch(error => {
+                    if (error.response.status === 422) {
+                        setError(error?.response.data?.message)
+                    }
+                })
             } else {
                 server.post(process.env.REACT_APP_BASE_PATH + '/user/notes', formData)
                 .then(res => {
@@ -81,6 +88,11 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
                     if (res.data.data) {
                         setNotes([...notes, res.data.data])
                         setShowNewNoteForm(false)
+                    }
+                })
+                .catch(error => {
+                    if (error.response.status === 422) {
+                        setError(error?.response.data?.message)
                     }
                 })
             }
@@ -93,14 +105,12 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
                 <h2 className="text-2xl font-semibold pb-2">{updatingNote ? 'Update' : 'Create New'} Note</h2>
                 <form onSubmit={handleNoteFormSubmit} className="flex flex-col" >
                     <label className="py-2" htmlFor="title">Title</label>
-                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none rounded-md border-solid border-2" type="text" name="title" required autoFocus />
-                    
+                    <p className="text-red-500">{error?error:null}</p>
+                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none" type="text" name="title" required  autoFocus />                 
                     <label className="py-2" htmlFor="description">Description</label>
-                    <input value={description} onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} className="py-1 px-2 outline-none rounded-md border-solid border-2" type="text" name="description" />
-                    
+                    <input value={description} onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} className="py-1 px-2 outline-none" type="text" name="description" />
                     <label className="py-2" htmlFor="cover">Cover</label>
                     <input onChange={handleFileChange} className="py-1 px-2" type="file" name="cover" />
-
                     <input className="mx-auto rounded w-4/12 py-2 my-3 bg-blue-500 text-white hover:bg-blue-600" type="submit" value={updatingNote ? 'Update': 'Create'} />
                 </form>
             </div>

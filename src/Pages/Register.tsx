@@ -13,6 +13,7 @@ function Register(): ReactElement {
     const userDispatch = useAppDispatch()
     const {user} = useAppSelector(userSelector)
     console.log(user,'use');
+    // const [ error_list, setError_list]=useState([]);
 
     const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value.trim())
@@ -34,6 +35,9 @@ function Register(): ReactElement {
         e.preventDefault()
         userDispatch(register({name, email, password, confirmPassword}));
     }
+
+   
+
     if (user) {        
         return <Redirect to='/note' />
     }
@@ -46,7 +50,7 @@ function Register(): ReactElement {
                 <div className="email-login">
                      <label htmlFor="email"> <b>Name</b></label>
                      <input className="login--input" value={name} onChange={handleNameChange} type="text" placeholder="Enter Name" name="name" id="name" required/>
-
+                    
                      <label htmlFor="email"> <b>Email</b></label>
                      <input className="login--input" value={email} onChange={handleEmailChange} type="text" placeholder="Enter Email" name="email" id="email" required/>
 
