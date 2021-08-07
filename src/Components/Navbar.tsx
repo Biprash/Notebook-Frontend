@@ -19,7 +19,8 @@ function Navbar({search, setSearch}: Props): ReactElement {
         setSearch(e.target.value)
     }
     return (
-        <nav className="bg-white fixed w-full top-0 z-10">
+        <>
+        {/* <nav className="bg-white fixed w-full top-0 z-10">
             <div className="container flex justify-between py-2 items-center">
                 <div className="">
                     <Link to="/"><img src={Logo} className="h-10" alt="logo"></img></Link>
@@ -40,7 +41,29 @@ function Navbar({search, setSearch}: Props): ReactElement {
                     }
                 </div>
             </div>
+        </nav> */}
+
+        <nav className="flex justify-around py-3 bg-white fixed top-0 h-14 w-full z-10 ">
+            <div>
+            <Link to="/"><img src={Logo} className="h-10" alt="logo"></img></Link>
+            </div>
+            <ul className="flex justify-center items-center">
+                <li>  <Link className="mx-3 my-aut pb-1 underline-effect text-gray-800 hover:text-gray-600 capitalize" to="/explore">explore</Link></li>
+               <li> <Link className="mx-3 my-1 pb-1 underline-effect text-gray-800 hover:text-gray-600 capitalize" to="/note">new note</Link></li>
+               <li>   <input value={search} onChange={handleChange} className="border border-gray-400 mx-4 rounded-lg focus:outline-none px-2 py-1 " type="search" name="search" placeholder="Search" id="search" /></li>
+            </ul>
+            <div className="">
+                    {user ?
+                    <button onClick={() => dispatch(logout())} className="mx-3 my-1 pb-1 underline-effect text-gray-800 hover:text-gray-600 capitalize">Logout</button>
+                    :
+                    <>
+                        <Link to="/login" className="mx-3 my-1 pb-1 underline-effect text-gray-800 hover:text-gray-600 capitalize">Login</Link>
+                        <Link to="/register" className="mx-3 my-1 pb-1   underline-effect text-gray-800 hover:text-gray-600 capitalize">Register</Link>
+                    </>
+                    }
+                </div>
         </nav>
+        </>
     )
 }
 
