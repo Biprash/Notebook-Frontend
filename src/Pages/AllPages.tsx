@@ -58,16 +58,19 @@ function AllPages(): ReactElement {
             <div className="">
                 <h1 className="text-center text-3xl uppercase font-bold text-gray-600" > All Notes </h1> 
             </div>
-               
+                <div className="grid grid-cols-2">
+            
                 {    
                   notes && notes.map((note, index) => {    
                      return note ? <Notes key={index} note={note}/> : null
                 })}
-            <div className="">
-                {links && links.map((link, index) => {
-                    return <button className={`bg-gray-400 ${link.active ? 'active' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label}</button>
-                })}
-            </div>
+                  </div>
+
+              <div className="bg-gray-500">
+                        {links && links.map((link, index) => {
+                            return <button className={`some-class ${link.active ? 'active' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label}</button>
+                        })}
+              </div>
         </div>
     )
 }
