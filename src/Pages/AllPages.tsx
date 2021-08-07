@@ -54,17 +54,18 @@ function AllPages(): ReactElement {
     }, [])
 
     return (
-        <div className="container ">
-            <div className="flex justify-center">
-                <h1 className="font-sans font-semibold text-4xl mt-28 text-black-600" > All Notes </h1> 
+        <div className="container mt-20 ">
+            <div className="">
+                <h1 className="text-center text-3xl uppercase font-bold text-gray-600" > All Notes </h1> 
             </div>
+               
                 {    
                   notes && notes.map((note, index) => {    
                      return note ? <Notes key={index} note={note}/> : null
                 })}
-            <div className="flex justify-center">
+            <div className="">
                 {links && links.map((link, index) => {
-                    return <button className={`some-class ${link.active ? 'active' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label}</button>
+                    return <button className={`bg-gray-400 ${link.active ? 'active' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label}</button>
                 })}
             </div>
         </div>
