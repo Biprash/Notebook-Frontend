@@ -41,7 +41,7 @@ function NoteDetail(): ReactElement {
     }
 
     useEffect(() => {
-        if (pages.length == 1)
+        if (pages.length === 1)
         {
             console.log(pages[0].id);
             

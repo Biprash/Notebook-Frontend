@@ -41,9 +41,6 @@ function Register(): ReactElement {
     if (user) {        
         return <Redirect to='/note' />
     }
-    else{
-       
-    }
     
     return (
         <div className="logincard"> 

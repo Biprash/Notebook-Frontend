@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { login } from '../redux/user/creators'
 import { userSelector } from '../redux/user/userSlice';
 import '../assets/css/Style.css';
-import { getEffectiveTypeParameterDeclarations } from 'typescript';
 
 function Login(): ReactElement {
     const [email, setEmail] = useState<string>('')
