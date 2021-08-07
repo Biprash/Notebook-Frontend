@@ -17,6 +17,8 @@ function SectionForm({pageId, sections, setSections, setShowSectionForm}: Props)
     const [title, setTitle] = useState<string>('')
     console.log(pageId, 'frm');
 
+    const [error, setError] = useState<string>('')
+
     const handleSectionFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         console.log(pageId, 'sub');
         e.preventDefault()
@@ -30,6 +32,11 @@ function SectionForm({pageId, sections, setSections, setShowSectionForm}: Props)
                     setShowSectionForm(false)
                 }
             })
+            .catch(error=>{
+                if(error.response.status === 422){
+                    setError(error.response?.message)
+                }
+            })
         }
         
     }
@@ -40,8 +47,8 @@ function SectionForm({pageId, sections, setSections, setShowSectionForm}: Props)
                 <h2 className="text-2xl font-semibold pb-2">Create New Section</h2>
                 <form onSubmit={handleSectionFormSubmit} className="flex flex-col" >
                     <label className="py-2" htmlFor="title">Title</label>
-                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none rounded-md border-solid border-2" type="text" name="title" required autoFocus />
-                    
+                    <p className="text-red-500">{error?error:null}</p>
+                    <input value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} className="py-1 px-2 outline-none" type="text" name="title" required autoFocus />
                     <input className="mx-auto rounded w-4/12 py-2 my-3 bg-blue-500 text-white hover:bg-blue-600" type="submit" value="Create" />
                 </form>
             </div>

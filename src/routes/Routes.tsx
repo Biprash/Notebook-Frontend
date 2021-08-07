@@ -10,7 +10,8 @@ import Register from '../Pages/Register'
 import Navbar from '../Components/Navbar'
 import Search from '../Pages/Search'
 import Bookmark from '../Pages/Bookmark'
-import Homepage from '../Pages/Homepage';
+import Homepage from '../Pages/Homepage'
+import Setting from '../Pages/Setting'
 import RecentlyViewed from '../Pages/RecentlyViewed'
 import AllPages from '../Pages/AllPages'
 
@@ -32,6 +33,9 @@ function Routes(): ReactElement {
                 </Route>
                 <Route path="/register">
                     <Register />
+                </Route>
+                <Route  path="/setting">
+                    <Setting />
                 </Route>
                 <Route path="/recently viewed">
                     <RecentlyViewed />
