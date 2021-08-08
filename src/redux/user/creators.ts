@@ -16,7 +16,7 @@ export const login = ({email, password}: Login): AppThunk => async (dispatch) =>
             console.log(user, 'user');
             
             if (user.data)
-                dispatch(getUser(user.data))
+                dispatch(getUser(user.data?.data))
         }
     } catch (error) {
         dispatch(authFail(error?.response.data?.message))

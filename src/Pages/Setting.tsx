@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import '../assets/css/Style.css'
 import Img1 from '../assets/images/books.jpg';
 import ProfileSidebar from '../Components/ProfileSidebar'
-import { useAppSelector } from '../redux/hooks';
-import { userSelector } from '../redux/user/userSlice';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { getUser, userSelector } from '../redux/user/userSlice';
 import server from '../server/server';
 
 function Setting(): ReactElement {
@@ -14,6 +14,7 @@ function Setting(): ReactElement {
     const [profilePic, setProfilePic] = useState<File>()
     const [oldProfilePic, setOldProfilePic] = useState<string>('')
     const {user} = useAppSelector(userSelector)
+    const dispatch = useAppDispatch()
 
     const getValidatedData = () => {
         
@@ -49,12 +50,7 @@ function Setting(): ReactElement {
             .then(res => {
                 if (res.data?.data) {
                     attachData(res.data?.data)
-                    // const data = res.data.data
-                    // const index = notes.findIndex(note => note.id === data.id),
-                    //     newNotes = [...notes] // important to create a copy, otherwise you'll modify state outside of setState call
-                    // newNotes[index] = data;                
-                    // setNotes(newNotes);
-                    // setShowNewNoteForm(false)
+                    dispatch(getUser(res.data.data))
                 }
             })
             .catch(error => {
