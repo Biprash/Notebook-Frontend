@@ -94,7 +94,7 @@ function Setting(): ReactElement {
                        <div className="w-52 h-28 ml-auto mr-10 relative">
                            <img className="rounded-lg w-full shadow-2xl" src={oldProfilePic ? oldProfilePic : Img1} alt="imgs"/>
                            <button className="absolute top-0 right-0 "></button>
-                           <input onChange={handleFileChange} type="file" name="file" id="file" accept="image/png, image/gif, image/jpeg, image/jpg" className="inputfile" />
+                           <input onChange={handleFileChange} type="file" name="file" id="file" accept="image/png, image/jpeg, image/jpg" className="inputfile" />
                             <label htmlFor="file"><i className="text-gray-300 text-lg far fa-edit"></i>{ profilePic ? profilePic.name: 'Choose a photo'}</label>
                        </div>
                    </div>

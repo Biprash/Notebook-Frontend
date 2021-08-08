@@ -110,7 +110,7 @@ function NoteForm({notes, updatingNote, setNotes, setShowNewNoteForm}: Props): R
                     <label className="py-2" htmlFor="description">Description</label>
                     <input value={description} onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} className="py-1 px-2 outline-none" type="text" name="description" />
                     <label className="py-2" htmlFor="cover">Cover</label>
-                    <input onChange={handleFileChange} className="py-1 px-2" type="file" name="cover" />
+                    <input onChange={handleFileChange} className="py-1 px-2" type="file" name="cover" accept="image/png, image/jpeg, image/jpg" />
                     <input className="mx-auto rounded w-4/12 py-2 my-3 bg-blue-500 text-white hover:bg-blue-600" type="submit" value={updatingNote ? 'Update': 'Create'} />
                 </form>
             </div>
