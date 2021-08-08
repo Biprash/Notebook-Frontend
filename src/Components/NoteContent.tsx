@@ -135,7 +135,7 @@ function NoteContent({selectedPage}: Props): ReactElement {
                                     <Link to={{pathname: resource.link}} target={"_blank"} className="flex flex-col items-center border-b-2 border-blue-200 mb-2">
                                         <h2 className=" px-1 h-12  capitalize font-semibold text-xl my-4 text-gray-7000 border-b-2 border-blue-200 ">{resource.title}</h2>
                                         <div className="h-46 w-ful ">
-                                        <p className="  overflow-auto text-gray-700 h-44 capitalize italic text-sm ">{resource.description}</p>
+                                        <p className="  overflow-auto text-gray-700 h-44 capitalize italic text-sm px-2 ">{resource.description}</p>
                                         </div>  
                                     </Link>
                                     {!location.state?.isPublic ? 
