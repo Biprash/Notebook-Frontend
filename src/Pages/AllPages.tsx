@@ -68,7 +68,7 @@ function AllPages(): ReactElement {
 
               <div className="absolute top-16 right-0">
                         {links && links.map((link, index) => {
-                            return <button className={`fab fa-facebook-f ${link.active ? 'active' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label}</button>
+                            return <button className={`bg-gray-600 border-2 rounded-2xl w-5 h-8 ${link.active ? 'bg-gray-400' : null}`} key={index} onClick={e => handlePagination(e, link)}></button>
                         })}
               </div>
         </div>
