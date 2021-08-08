@@ -1,5 +1,5 @@
 # Notebook
-
+presentation link: <a href="https://docs.google.com/presentation/d/1u6Ygicov9-iY3LjRRZfmVRaDmS6qgllS/edit#slide=id.ge48dc5b14d_0_0">slides</a>
 Notebook is a website where you can read/write notes, books, and much more from the same place.
 
 # Notebook Backend
