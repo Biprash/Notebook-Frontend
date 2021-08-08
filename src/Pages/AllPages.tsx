@@ -68,7 +68,7 @@ function AllPages(): ReactElement {
 
               <div className="absolute top-16 right-10">
                         {links && links.map((link, index) => {
-                            return <button className={`py-2 px-6 rounded-lg shadow-2xl border-2 text-blue-50 bg-blue-500 m-1 hover:bg-blue-700 ${link.active ? 'bg-gray-400' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label === "&laquo; Previous" ? "Previous": link.label === "Next &raquo;"? "Next" : link.label}</button>
+                            return <button className={`py-1 px-4 rounded-lg shadow-2xl border-2 text-blue-50 bg-blue-500 m-1 hover:bg-blue-700 ${link.active ? 'bg-gray-400' : null}`} key={index} onClick={e => handlePagination(e, link)}>{link.label === "&laquo; Previous" ? "Previous": link.label === "Next &raquo;"? "Next" : link.label}</button>
                         })}
               </div>
         </div>
