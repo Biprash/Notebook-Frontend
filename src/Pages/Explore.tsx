@@ -29,11 +29,11 @@ function Explore(): ReactElement {
         })
     }, [])
     return (
-        <div className="container ">
+        <div className="px-6 mb-10">
             {/* <div className="item--cards"> */}
-            <div className="mt-28 relative">
-                <h1 className="text-black-600 text-center text-6xl text-gray-700 font-semibold" > Explore More Notes </h1> 
-                <Link to="/all-notes" className="absolute right-0 top-5 py-3 px-8 uppercase bg-blue-500 rounded-lg hover:bg-blue-700 text-blue-50 text-gray-700 ">all Notes<i className="ml-4 fas fa-arrow-right"></i> </Link>
+            <div className="relative mt-28">
+                <h1 className="text-6xl font-semibold text-center text-gray-700 text-black-600" > Explore More Notes </h1> 
+                <Link to="/all-notes" className="absolute right-0 px-8 py-3 text-white uppercase bg-blue-500 rounded-lg cursor-pointer top-5 hover:bg-blue-700 ">all Notes<i className="ml-4 fas fa-arrow-right"></i> </Link>
             </div>
                 {    
                   explores && explores.map((explore, index) => {    

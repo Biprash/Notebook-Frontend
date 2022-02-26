@@ -38,16 +38,16 @@ function RecentlyViewed(): ReactElement {
         <>
             <ProfileSidebar selected="Recently Viewed" />
 
-            <main className="ml-80 p-3 h-auto pt-16">
-            <h1 className="font-semibold text-4xl my-8 text-black-600">Recently Viewed Notes</h1>
+            <main className="h-auto p-3 pt-16 ml-[260px] px-6">
+            <h1 className="my-8 text-4xl font-semibold text-black-600">Recently Viewed Notes</h1>
             {notes && notes.length !==0 ?
-                <div className="item--cards">
+                <div className="flex flex-wrap w-full">
                     {notes.map(note => {
                             return <NoteCard note={note} />
                     })}  
                 </div>
                 :
-                <h1 className="font-semibold text-4xl mt-28 text-black-600">You have not recently viewed any notes.</h1>
+                <h1 className="text-4xl font-semibold mt-28 text-black-600">You have not recently viewed any notes.</h1>
             }
             </main>   
         </>

@@ -61,16 +61,16 @@ function NoteList({note, notes, setNotes, setUpdatingNote, setShowNewNoteForm}: 
 
     return (
         <>
-             <article className="note--cards hover:shadow-2xl hover:border-gray-400 border-4">
+             <article className="w-[350px] rounded custom-note--cards hover:shadow-2xl transition-all duration-200 hover:border-gray-400">
                 <div className="max-w-full">
                 <Link to={{ 
                         pathname:`/note/${note.id}`,
                         state: { title: note.title, published:note.published }
                     }}>
-                        <h3 className="text-center h-16 text-lg capitalize text-gray-800 font-bold my-2 ">{note.title}</h3>
-                        <img src={note.cover} alt="No image" className="w-full h-40 object-cover " />
+                        <h3 className="h-16 my-2 text-lg text-center mx-auto text-gray-800 capitalize max-w-[200px] truncate">{note.title}</h3>
+                        <img src={note.cover} alt="background " className="object-cover w-full h-40 " />
                       
-                    <p className=" text-sm text-gray-600 italic capitalize  my-6 h-16 overflow-auto text-center " > {note.description} </p>
+                    <p className="h-16 my-6 overflow-auto text-sm italic text-center text-gray-600 capitalize " > {note.description} </p>
                     
                 </Link>
                 </div>

@@ -7,29 +7,32 @@ import Footer from '../Components/Footer'
 function Homepage(): ReactElement {
     return (
         <>
-            <div className="mx-auto bg-white max-w-screen-2xl">
-            <section className="grid grid-cols-1 mt-14 md:grid-cols-2" id="hero-section">
-            <div className="flex flex-col items-center justify-center row-start-1 m-5 md:items-start">
-                <h1 className="text-4xl font-medium leading-7 tracking-tighter md:text-6xl">Easy Note For all</h1>
-                <p className="pt-10 mb-8 text-lg font-medium leading-8 text-gray-600 md:text-2xl">Make it share it and learn it</p>
-                <Link to="/note" className="flex flex-row items-center justify-around px-4 py-2 ml-4 text-base text-indigo-100 bg-indigo-600 border border-blue-500 border-solid rounded hover:bg-indigo-500 md:text-lg">Get Started <i className="pl-2 fas fa-arrow-right animate-bounce"></i></Link>
-            </div>
-          
-            <div className="self-center w-7/12 max-w-xl row-start-2 ml-10 md:w-11/12 justify-self-center md:row-end-1">
-                <img className="w-full h-full" src={HomeImg1} alt="iamges"/>
-            </div>
+            <div className="w-full">
+            <section className='grid grid-cols-1 md:grid-cols-2 mt-14  py-[100px]' id='hero-section'>
+                    <div className=' py-[25px] flex justify-center items-center px-6'>
+                        <div className='space-y-4 '>
+                            <h1 className='text-[60px] leading-8 font-bold pb-2 text-gray-900 capitalize '>easy note for all</h1>
+                            <p className=''>Make it share it and learn it</p>
+                            <div>
+                                <Link to="/note" className='inline-block px-6 py-4 text-white bg-indigo-500 rounded hover:bg-indigo-700'>Get Started <i className="pl-2 fas fa-arrow-right animate-bounce"></i></Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex items-baseline w-full '>
+                        <img  src={HomeImg1} alt="iamges" />
+                    </div>
 
-            <div className="self-center w-7/12 max-w-xl row-start-4 md:w-11/12 justify-self-center md:row-start-2 ">
-                <img src={HomeImg2} alt="secondimage"/>
-            </div>
-
-            <div className="flex flex-col items-center justify-center w-8/12 row-start-3 mx-auto my-16 md:mx-0 md:items-start md:row-end-2">
-                <h1 className="text-4xl font-medium leading-7 tracking-tighter md:text-6xl"> Sharing is Caring</h1>
-                <p className="text-lg font-medium leading-8 text-center text-gray-600 md:text-2xl"> Prepare the note and pass it to the other people in more efficient manner and let everyone be
-                 educated</p>
-            </div>
-            </section>  
-
+                    <div className='flex justify-end'>
+                        <img src={HomeImg2} alt="secondimage"/>
+                    </div>
+                    <div className="py-[25px] flex justify-center items-center px-6">
+                        <div className='space-y-4'>
+                            <h1 className="text-[60px] leading-8 font-bold pb-2 text-gray-900 capitalize "> Sharing is Caring</h1>
+                            <p className="w-[500px]"> Prepare the note and pass it to the other people in more efficient manner and let everyone be
+                            educated</p>
+                        </div>
+                     </div>
+            </section>
             <Footer/>
             </div> 
         </>

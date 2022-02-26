@@ -15,31 +15,29 @@ function ProfileSidebar({selected}: Props): ReactElement {
     console.log(user?.profile_pic? user?.profile_pic: 'ldskafl', user, user?.profile_pic);
     
     return (
-        <nav className="fixed inset-y-0 left-0 bg-gray-200 shadow-xl p-1 mt-14 w-100">  
-               	<div className="flex h-40 w-full mt-2">
-                    
-					<div className="h-full w-1/3 ">
-                     <img className="w-24 h-24 bg-cover bg-no-repeat bg-center rounded-3xl" src={user?.profile_pic ? user.profile_pic : Book} alt="" />
-					
+        <nav className="fixed inset-y-0 left-0 p-1 bg-gray-200 shadow-xl mt-14 pt-[20px]">  
+               	<div className="flex w-full mt-2 mb-10">
+					<div className="w-1/3 h-full ">
+                         <img className="w-20 h-20 bg-center bg-no-repeat bg-cover rounded" src={user?.profile_pic ? user.profile_pic : Book} alt="" />
                     </div>
-					<div className=" h-full mx-3">
+					<div className="h-full mx-3 ">
                         <h3 className="font-bold capitalize">{user?.name}</h3>
-                       <div className="flex flex-row content-center "> <img src={hat} alt="hat"/><p className="pl-1 py-1 text-base truncate">Kist College</p></div>
-                       <div className="flex flex-row content-center"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">{user?.email}</p></div>
+                        <div className="flex flex-row "> <img src={hat} alt="hat"/><p className="py-1 pl-1 text-base truncate">Kist College</p></div>
+                        <div className="flex flex-row content-center text-blue-500 cursor-pointer"> <img src={email} alt="email"/><p className="pl-1 text-base truncate">{user?.email}</p></div>
 					</div>
 				</div>
-                <ul className="mt-6 mx-3">
-                    <li className="my-3">
-                    <Link to="/note" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block  w-full  ${ selected === 'All Notes' ? 'bg-white border-b-2 border-solid border-gray-400' : null}`}>All Notes</Link>
+                <ul className="">
+                    <li className="">
+                    <Link to="/note" className={`text-gray-700 cursor-pointer py-[10px] px-2 my-1 rounded underline-effect hover:bg-gray-100 block  w-full  ${ selected === 'All Notes' ? 'bg-white border-b-2 border-solid border-gray-400' : null}`}>All Notes</Link>
                     </li>
-                    <li className="my-3">
-                        <Link to="/recently viewed" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block ${ selected === 'Recently Viewed' ? 'bg-white border-b-2 border-solid border-gray-400' : null}`}>Recently Viewed</Link>
+                    <li className="">
+                        <Link to="/recently viewed" className={`text-gray-700 cursor-pointer py-[10px] px-2 my-1 rounded underline-effect hover:bg-gray-100 w-full ${ selected === 'Recently Viewed' ? 'bg-white border-b-2 border-solid border-gray-400' : null}`}>Recently Viewed</Link>
                     </li>
-                    <li className="my-3">
-                        <Link to="/bookmarks" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block  w-full ${ selected === 'Bookmarks' ? 'bg-white border-b-2 border-solid border-gray-400' : null}`}>Bookmarks</Link>
+                    <li className="">
+                        <Link to="/bookmarks" className={`text-gray-700 cursor-pointer py-[10px] px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full ${ selected === 'Bookmarks' ? 'bg-white border-b-2 border-solid border-gray-400' : null}`}>Bookmarks</Link>
                     </li>
-                    <li className="my-3">
-                    <Link to="/setting" className={`text-gray-700 py-1 px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full ${ selected === 'Setting' ? 'bg-white border-b-2 border-solid border-gray-300' : null}`}>Settings</Link>
+                    <li className="">
+                    <Link to="/setting" className={`text-gray-700 py-[10px] cursor-pointer px-2 my-1 rounded hover:bg-gray-100 block underline-effect w-full ${ selected === 'Setting' ? 'bg-white border-b-2 border-solid border-gray-300' : null}`}>Settings</Link>
                     </li>
                 </ul>
 

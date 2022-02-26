@@ -84,33 +84,33 @@ function Setting(): ReactElement {
     return (
     <>
     <ProfileSidebar selected="Setting" />
-        <div className="mt-16 flex flex-col justify-center items-center ">
-           <div className=" p-10 border-2 border-dashed border-gray-300 rounded pr-8 ">
-              <h1 className="text-2xl ml-6 my-3">Profile</h1>
+        <div className="flex flex-col ml-[250px] mt-9 ">
+           <div className="p-10 pr-8 rounded ">
+              <h1 className="my-3 ml-6 text-2xl">Profile</h1>
               <p className="text-red-500">{error?error:null}</p>
               <form onSubmit={handleFormSubmit}>
                <div className="flex">
                    <div className="text-white">
-                       <div className="w-52 h-28 ml-auto mr-10 relative">
-                           <img className="rounded-lg w-32 h-24  shadow-2xl" src={oldProfilePic ? oldProfilePic : Img1} alt="imgs"/>
+                       <div className="">
+                           <img className="w-32 h-24 rounded shadow-2xl" src={oldProfilePic ? oldProfilePic : Img1} alt="imgs"/>
                            <button className="absolute top-0 right-0 "></button>
                            <input onChange={handleFileChange} type="file" name="file" id="file" accept="image/png, image/jpeg, image/jpg" className="inputfile" />
-                            <label htmlFor="file"><i className="text-gray-300 text-lg far fa-edit"></i>{ profilePic ? profilePic.name: 'Choose a photo'}</label>
+                            <label htmlFor="file"><i className="text-lg text-gray-300 far fa-edit"></i>{ profilePic ? profilePic.name: 'Choose a photo'}</label>
                        </div>
                    </div>
-                   <div className="w-1/4 ">
+                   <div className="">
                      <ul>
                          <li>
-                            <input onChange={e => setName(e.target.value)} value={name} className="my-1 ml-2 rounded border-solid border-2 border-gray-700 text-gray-800 pl-2" type="text" placeholder="Name"/>
+                            <input onChange={e => setName(e.target.value)} value={name} className="pl-2 h-[54px] my-1 ml-2 text-gray-800 border-2 border-gray-700 border-solid rounded" type="text" placeholder="Name"/>
                          </li>
 
                          <li>
-                            <input onChange={e => setEmail(e.target.value)} value={email} className="my-1 ml-2 rounded border-solid border-2 border-gray-700 text-gray-800 pl-2" type="email" placeholder="Email"/>
+                            <input onChange={e => setEmail(e.target.value)} value={email} className="pl-2 h-[54px] my-1 ml-2 text-gray-800 border-2 border-gray-700 border-solid rounded" type="email" placeholder="Email"/>
                          </li>
                      </ul>
                    </div>
                </div>
-               <button className="py-2 px-5 bg-blue-500 text-blue-100 hover:bg-blue-700 mt-24 rounded-md ">Save</button>
+               <button className="px-6 py-2 mt-6 text-blue-100 bg-blue-500 rounded hover:bg-blue-700 ">Save</button>
                </form>
            </div>
      </div>

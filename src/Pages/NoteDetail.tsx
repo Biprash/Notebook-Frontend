@@ -60,18 +60,21 @@ function NoteDetail(): ReactElement {
     }, [])    
     
     return (
-        <div className="flex flex-col ml-64 mt-16">
-            <div className="container flex border-b-2 border-dashed border-gray-300">
-                <h1 className="font-bold text-3xl text-gray-800 uppercase mx-auto py-2 underline-effect mb-2">{location.state?.title}</h1>
-                {!location.state?.isPublic ? 
-                <button onClick={handleNotePublish} className={`text-white px-8 my-2 rounded ${notePublished?'bg-red-500 hover:bg-red-500':'bg-blue-500 hover:bg-blue-600'}`}>{notePublished? 'Unpublish Note' : 'Publish Note'}</button>
-                : null }
-            </div>
-            <div className="flex">
-                <NoteSidebar pages={pages} setPages={setPages} setSelectedPage={setSelectedPage}  />
-                <NoteContent selectedPage={selectedPage} />
+        <div>
+            <div className="flex flex-col mt-16 ml-64">
+                <div className="flex px-6 border-b border-gray-200">
+                    <h1 className="py-2 mx-auto mb-2 text-3xl font-bold text-gray-800 uppercase underline-effect">{location.state?.title}</h1>
+                    {!location.state?.isPublic ? 
+                    <button onClick={handleNotePublish} className= {`text-white cursor-pointer px-8 my-2 rounded ${notePublished?'bg-red-500 hover:bg-red-500':'bg-blue-500 hover:bg-blue-900'}`}>{notePublished? 'Unpublish Note' : 'Publish Note'}</button>
+                    : null }
+                </div>
+                <div className="flex">
+                    <NoteSidebar pages={pages} setPages={setPages} setSelectedPage={setSelectedPage}  />
+                    <NoteContent selectedPage={selectedPage} />
+                </div>
             </div>
         </div>
+  
     )
 }
 

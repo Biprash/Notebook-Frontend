@@ -46,9 +46,9 @@ function Bookmark(): ReactElement {
             {showNewNoteForm ? <NoteForm setShowNewNoteForm={setShowNewNoteForm} notes={notes} setNotes={setNotes} updatingNote={updatingNote} />: null}
             
             <ProfileSidebar selected="Bookmarks" />
-            <main className="ml-64 p-3 h-auto">
-                <h1 className="font-bold text-3xl text-gray-800 py-2">Bookmarked Notes</h1>
-                <div className="item--cards">
+            <main className="h-auto px-4 mt-12 ml-64">
+                <h1 className="py-6 text-3xl font-bold text-gray-800 border-b border-gray-200">Bookmarked Notes</h1>
+                <div className="flex flex-wrap gap-6 px-6 pt-6">
                     {notes && notes.map(note => {
                             return <NoteList key={note.id} notes={notes} setNotes={setNotes} setUpdatingNote={setUpdatingNote} setShowNewNoteForm={setShowNewNoteForm} note={note} />
                         })}  
