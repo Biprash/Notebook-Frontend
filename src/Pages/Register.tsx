@@ -3,7 +3,7 @@ import { Redirect, Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { register } from '../redux/user/creators'
 import { userSelector } from '../redux/user/userSlice';
-import '../assets/css/Style.css'
+
 
 function Register(): ReactElement {
     const [name, setName] = useState<string>('')

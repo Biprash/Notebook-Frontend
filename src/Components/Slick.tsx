@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
-import '../assets/css/Style.css'
+
 // import HorizontalScroll from 'react-scroll-horizontal'
 
 

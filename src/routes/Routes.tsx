@@ -14,6 +14,7 @@ import Homepage from '../Pages/Homepage'
 import Setting from '../Pages/Setting'
 import RecentlyViewed from '../Pages/RecentlyViewed'
 import AllPages from '../Pages/AllPages'
+import '../assets/css/style.css';
 
 function Routes(): ReactElement {
     const [search, setSearch] = useState<string>('')

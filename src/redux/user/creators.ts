@@ -18,7 +18,7 @@ export const login = ({ email, password }: Login): AppThunk => async (dispatch) 
             if (user.data)
                 dispatch(getUser(user.data?.data))
         }
-    } catch (error: any) {
+    } catch (error:any) {
         dispatch(authFail(error?.response.data?.message))
     }
 }
@@ -31,7 +31,7 @@ export const fetchUser = (): AppThunk => async (dispatch) => {
 
         if (user?.data)
             dispatch(getUser(user.data?.data))
-    } catch (error: any) {
+    } catch (error:any) {
         dispatch(authFail(error?.response.data?.message))
     }
 }
@@ -46,7 +46,7 @@ export const logout = (): AppThunk => async (dispatch) => {
         if (!response.data) {
             dispatch(authLogout())
         }
-    } catch (error: any) {
+    } catch (error:any) {
         dispatch(authFail(error?.response.data?.message))
     }
 }
@@ -70,7 +70,7 @@ export const register = ({ name, email, password, confirmPassword }: Register): 
             if (user.data)
                 dispatch(getUser(user.data))
         }
-    } catch (error: any) {
+    } catch (error:any) {        
         dispatch(authFail(error?.response.data?.message))
     }
 }

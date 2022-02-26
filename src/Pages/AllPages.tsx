@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { ReactElement, useEffect, useState, MouseEvent } from 'react'
-import '../assets/css/Style.css'
+
 import Notes from '../Components/Notes'
 import server from '../server/server'
 
@@ -56,9 +56,9 @@ function AllPages(): ReactElement {
     return (
         <div className="container mt-20 ">
             <div className="">
-                <h1 className="text-center text-5xl uppercase font-bold text-gray-600" > All Notes </h1> 
+                <h1 className="text-5xl font-bold text-center text-gray-600 uppercase" > All Notes </h1> 
             </div>
-                <div className="item--cards mt-6">
+                <div className="mt-6 item--cards">
             
                 {    
                   notes && notes.map((note, index) => {    

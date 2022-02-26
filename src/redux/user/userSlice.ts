@@ -18,7 +18,7 @@ export const userSlice = createSlice({
         },
         authFail: (state, {payload}: PayloadAction<UserState>) => {
             state.loading = false
-            state.error = payload.error
+            // state.error = payload.error
         },
         getUser: (state, {payload}: PayloadAction<User>) => {            
             state.loading=false

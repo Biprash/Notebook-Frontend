@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, ReactElement, useEffect, useState } from 'react'
 import { Redirect } from 'react-router-dom';
-import '../assets/css/Style.css'
+
 import Img1 from '../assets/images/books.jpg';
 import ProfileSidebar from '../Components/ProfileSidebar'
 import { useAppDispatch, useAppSelector } from '../redux/hooks';

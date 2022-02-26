@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
-import '../assets/css/Style.css'
+
 
 interface Note {
     id: number;

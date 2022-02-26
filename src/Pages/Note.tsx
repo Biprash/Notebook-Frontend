@@ -8,7 +8,7 @@ import { logout } from '../redux/user/creators'
 import { userSelector } from '../redux/user/userSlice'
 import server from '../server/server'
 
-import '../assets/css/Style.css'
+
 
 interface Note {
     id: number,

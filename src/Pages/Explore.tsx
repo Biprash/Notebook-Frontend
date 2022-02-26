@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react'
 import Slick from '../Components/Slick'
 import server from '../server/server'
-import '../assets/css/Style.css'
+
 import {Link} from 'react-router-dom'
 
 interface Note {

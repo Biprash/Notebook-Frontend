@@ -5,6 +5,8 @@ import { fetchUser } from './redux/user/creators';
 import { userSelector } from './redux/user/userSlice';
 import Routes from './routes/Routes';
 
+import './assets/css/style.css'
+
 function App() {
   const {user, fetched, loading} = useAppSelector(userSelector)
   const dispatch = useAppDispatch()

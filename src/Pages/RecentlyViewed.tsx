@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { userSelector } from '../redux/user/userSlice'
 import { logout } from '../redux/user/creators'
 
-import '../assets/css/Style.css'
+
 import NoteCard from '../Components/NoteCard'
 
 interface Note {
